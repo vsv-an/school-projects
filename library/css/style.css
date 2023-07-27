@@ -24,7 +24,9 @@ body {
 }
 
 header {
-  width: 100%;
+  /* width: 100%; */
+  max-width: 1440px;
+  margin: 0 auto;
   background: #0C0C0E;
 }
 
@@ -72,12 +74,12 @@ a {
 
 a:hover {
   cursor: pointer;
-  color: grey;
+  color: gray;
   transition: 0.3s ease-in-out;
 }
 
 a span:hover {
-  color: grey;
+  color: gray;
   transition: 0.3s ease-in-out;
 }
 
@@ -88,12 +90,14 @@ a span:hover {
 }
 
 svg:hover path {
-  fill: grey;
+  fill: gray;
   transition: 0.3s ease-in-out;
 }
 
 .welcome {
-  width: 100%;
+  /* width: 100%; */
+  max-width: 1440px;
+  margin: 0 auto;
   background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 100%), url(../img/welcome-without-overlay.jpg);
   background-size: cover;
   /* background-repeat: no-repeat;
@@ -289,7 +293,7 @@ svg:hover path {
 }
 
 .favorites-label {
-  /* position: relative; */
+  position: relative;
   display: flex;
   align-items: center;
   width: 125px;
@@ -304,15 +308,14 @@ svg:hover path {
   cursor: pointer;
 }
 
-/* .favorites-input-wrapper {
-  z-index: 20;
-  display: flex;
-  text-align: center;
-  width: 18px;
-  height: 18px;
-  border: 2px solid black;
+.favorites-label input::after {
+  position: absolute;
+  content: '';
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
   border-radius: 50%;
-} */
+}
 
 .favorites-label:first-child {
   padding: 5px 0 5px 0;
@@ -803,6 +806,8 @@ svg:hover path {
 }
 
 .footer {
+  max-width: 1440px;
+  margin: 0 auto;
   background: #0C0C0E;
 }
 
@@ -820,6 +825,11 @@ svg:hover path {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+}
+
+.p-footer-left-column:hover {
+  color: gray;
+  transition: 0.3s ease-in-out;
 }
 
 .p-footer-right-column {
