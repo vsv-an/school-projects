@@ -44,7 +44,7 @@ header {
   display: flex;
   align-items: center;
   gap: 40px;
-  padding-left: 4px;
+  padding-left: 5px;
 }
 
 h1 {
@@ -390,7 +390,7 @@ svg:hover path {
 .favorites-box-item-img {
   position: absolute;
   bottom: -1px;
-  right: -40px;
+  right: -41px;
 }
 
 .h3-favorites-box {
