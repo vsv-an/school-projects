@@ -78,7 +78,7 @@ h1 {
   right: 100%;
   bottom: 0;
   height: 1px;
-  background: gray;
+  background: #BB945F;
   transition: all 0.3s ease-in-out;
 }
 
@@ -89,7 +89,7 @@ h1 {
 
 a:hover {
   cursor: pointer;
-  color: gray;
+  color: #BB945F;
   transition: 0.3s ease-in-out;
 }
 
@@ -100,7 +100,7 @@ a:hover {
 }
 
 svg:hover path {
-  fill: gray;
+  fill: #BB945F;
   transition: 0.3s ease-in-out;
 }
 
@@ -336,12 +336,10 @@ svg:hover path {
 }
 
 .favorites-label input[type="radio"]::after {
-  /* position: absolute; */
   content: '';
   display: block;
   width: 9px;
   height: 9px;
-  /* border: 1px solid black; */
   border-radius: 50%;
 }
 
@@ -616,6 +614,10 @@ svg:hover path {
   text-align-last: left;
 }
 
+.contacts-box-right-column img {
+  padding-left: 4px;
+}
+
 .h3-contacts {
   margin-bottom: 40px;
   color: #000;
@@ -671,7 +673,7 @@ svg:hover path {
 }
 
 .contacts-link span:hover {
-  color: gray;
+  color: #BB945F;
   transition: 0.3s ease-in-out;
 }
 
@@ -704,6 +706,7 @@ svg:hover path {
   border: 3px solid #BB945F;
   background: #FFF;
   margin-bottom: 41px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .check-the-card-form-inner-block {
@@ -864,7 +867,7 @@ svg:hover path {
 }
 
 .p-footer-left-column:hover {
-  color: gray;
+  color: #BB945F;
   transition: 0.3s ease-in-out;
 }
 
