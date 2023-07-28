@@ -67,18 +67,28 @@ h1 {
   line-height: 50px;
 }
 
-a {
-  color: #000;
-  cursor: pointer;
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: gray;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  left: 0;
+  right: 0;
 }
 
 a:hover {
   cursor: pointer;
-  color: gray;
-  transition: 0.3s ease-in-out;
-}
-
-a span:hover {
   color: gray;
   transition: 0.3s ease-in-out;
 }
@@ -169,7 +179,8 @@ svg:hover path {
   width: 50px;
   position: absolute;
   bottom: 39px;
-  left: 48%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .p-about {
@@ -286,9 +297,12 @@ svg:hover path {
 
 .form-favorites-season {
   display: flex;
+  position: relative;
+  left: -5px;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 704px;
+  max-width: 719px;
   margin-bottom: 35px;
 }
 
@@ -296,7 +310,7 @@ svg:hover path {
   position: relative;
   display: flex;
   align-items: center;
-  width: 125px;
+  width: 130px;
   gap: 20px;
   color: #000;
   font-family: Inter;
@@ -306,37 +320,49 @@ svg:hover path {
   line-height: normal;
   accent-color: black;
   cursor: pointer;
+  padding: 5px;
 }
 
-.favorites-label input::after {
-  position: absolute;
-  content: '';
-  width: 15px;
-  height: 15px;
-  border: 1px solid black;
-  border-radius: 50%;
-}
-
-.favorites-label:first-child {
-  padding: 5px 0 5px 0;
-}
-
-.favorites-label:nth-child(2) {
-  padding: 5px 0 5px 5px;
-}
-
-.favorites-label:nth-child(3) {
-  padding: px 0 5px 0px;
-}
-
-.favorites-label:last-child {
-  padding: 5px 0 5px 10px;
-}
-
-.favorites-label input {
+.favorites-label input[type="radio"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 17px;
   height: 17px;
   cursor: pointer;
+  appearance: none;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.favorites-label input[type="radio"]::after {
+  /* position: absolute; */
+  content: '';
+  display: block;
+  width: 9px;
+  height: 9px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+}
+
+.favorites-label input[type="radio"]:checked::after {
+  background: #000;
+}
+
+.favorites-label:first-child {
+  margin-right: 6px;
+}
+
+.favorites-label:nth-child(2) {
+  margin-right: 0;
+}
+
+.favorites-label:nth-child(3) {
+  margin-right: 16px;
+}
+
+.favorites-label:last-child {
+  /* padding-left: 18px; */
 }
 
 .favorites-label input:checked~span {
@@ -639,6 +665,16 @@ svg:hover path {
   text-transform: capitalize;
 }
 
+.contacts-link {
+  color: #000;
+  cursor: pointer;
+}
+
+.contacts-link span:hover {
+  color: gray;
+  transition: 0.3s ease-in-out;
+}
+
 .library-card-box {
   display: flex;
   justify-content: space-between;
@@ -882,5 +918,5 @@ svg:hover path {
 }
 
 .p-footer-bottom-row-left {
-  margin-right: 165px;
+  margin-right: 66px;
 }
