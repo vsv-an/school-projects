@@ -28,6 +28,7 @@ header {
   max-width: 1440px;
   margin: 0 auto;
   background: #0C0C0E;
+  z-index: 5;
 }
 
 .header-block {
@@ -45,6 +46,7 @@ header {
   align-items: center;
   gap: 40px;
   padding-left: 5px;
+  padding-right: 20px;
 }
 
 h1 {
@@ -58,7 +60,7 @@ h1 {
   padding: 20px;
 }
 
-.navigation a {
+.menu a {
   color: #FFF;
   font-family: Inter;
   font-size: 20px;
@@ -93,7 +95,7 @@ a:hover {
   transition: 0.3s ease-in-out;
 }
 
-.navigation {
+.menu {
   display: flex;
   gap: 30px;
   text-decoration: none;
@@ -109,9 +111,9 @@ svg:hover path {
   max-width: 1440px;
   margin: 0 auto;
   background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.1) 100%), url(../img/welcome-without-overlay.jpg);
+  background-position: center center;
   background-size: cover;
-  /* background-repeat: no-repeat;
-  background-position: center; */
+  background-repeat: no-repeat;
 }
 
 .welcome-block {
@@ -208,9 +210,15 @@ svg:hover path {
 .slider {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 25px;
+  /* justify-content: space-between; */
   align-items: center;
   margin-bottom: 35px;
+}
+
+.slider-arrow-left,
+.slider-arrow-right {
+  display: none;
 }
 
 #slide4 {
@@ -225,6 +233,14 @@ svg:hover path {
   display: flex;
   justify-content: center;
   margin: 0 auto 55px auto;
+}
+
+#label-slider-radio4 {
+  display: none;
+}
+
+#label-slider-radio5 {
+  display: none;
 }
 
 .slider-manual-btn input {
@@ -371,8 +387,12 @@ svg:hover path {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-right: 40px;
+  /* margin-right: 40px; */
   box-sizing: border-box;
+}
+
+.favorites-box-card {
+  width: 590px;
 }
 
 .favorites-box-item {
@@ -584,7 +604,7 @@ svg:hover path {
 }
 
 .contacts {
-  margin-bottom: 56px;
+  margin-bottom: 58px;
 }
 
 .contacts-box {
@@ -614,8 +634,16 @@ svg:hover path {
   text-align-last: left;
 }
 
-.contacts-box-right-column img {
+.contacts-box-right-column {
+  /* width: 50%; */
+  /* height: 100%; */
+}
+.contacts-map {
   padding-left: 4px;
+  width: 100%;
+  height: auto;
+  max-width: 696px;
+   /* max-height: 414px; */
 }
 
 .h3-contacts {
@@ -922,4 +950,12 @@ svg:hover path {
 
 .p-footer-bottom-row-left {
   margin-right: 66px;
+}
+
+@media (max-width: 768px) {
+  .welcome {
+    background: url(../img/tablet-welcome.jpg), lightgray 50% / cover no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
