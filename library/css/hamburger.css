@@ -225,6 +225,10 @@ body._lock {
     margin-bottom: 35px;
   }
 
+  .favorites-box-card {
+    max-width: 100%;
+  }
+
   .p-coffee-shop {
     /* margin: 0 -2px 40px -2px; */
     letter-spacing: 1.9px;
@@ -246,6 +250,20 @@ body._lock {
     margin-bottom: 99px;
   }
 
+  .contacts-box-right-column {
+    width: 100%;
+    /* height: 100%; */
+    align-items: right;
+  }
+
+  .library-card {
+    margin: 0 auto;
+  }
+
+  .library-card-box-left-column {
+    max-width: 100%;
+    align-items: center;
+  }
   .library-card-box-right-column {
     width: 80%;
     align-items: center;
