@@ -20,6 +20,17 @@ body._lock {
     flex-direction: column;
     align-items: center;
   }
+
+  .contacts-box-left-column {
+    width: 100%;
+    margin-bottom: 99px;
+  }
+
+  .contacts-box-right-column {
+    width: 100%;
+    /* height: 100%; */
+    /* align-items: right; */
+  }
 }
 
 @media (max-width: 1250px) {
@@ -243,17 +254,6 @@ body._lock {
   .coffee-shop-box-right-column {
     margin-left: auto;
 
-  }
-
-  .contacts-box-left-column {
-    width: 100%;
-    margin-bottom: 99px;
-  }
-
-  .contacts-box-right-column {
-    width: 100%;
-    /* height: 100%; */
-    align-items: right;
   }
 
   .library-card {
