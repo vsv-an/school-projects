@@ -304,3 +304,13 @@ body._lock {
     margin-left: 0px;
   }
 } */
+
+@media (max-width: 778px) {
+  .form-favorites-season {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.8);
+  }
+}

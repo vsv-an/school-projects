@@ -7,8 +7,10 @@ menuToggle.onclick = function () {
   menuToggle.classList.toggle("active");
 };
 
-document.addEventListener("click", (el) => {
-  if (!el.target.classList.contains("menu-toggle")) {
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("menu-toggle")
+    && !e.target.closest('.header-navigation')
+    || e.target.classList.contains("nav-link")) {
     document.body.classList.remove('_lock');
     navigation.classList.remove("active");
     menuToggle.classList.remove("active");
