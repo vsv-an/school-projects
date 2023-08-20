@@ -56,11 +56,13 @@ body._lock {
     order: 2;
   }
 
-  .profile-link {
+  .profile-btn {
+    padding-left: 0;
+    padding-right: 40px;
     z-index: 2;
   }
 
-  #profile-link-id {
+  #profile-btn-id {
     order: 1;
   }
 

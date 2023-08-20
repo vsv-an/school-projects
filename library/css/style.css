@@ -44,9 +44,17 @@ header {
 .header-right-column {
   display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
+  /* gap: 40px; */
   padding-left: 5px;
   padding-right: 20px;
+}
+
+.profile-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding-left: 40px;
 }
 
 h1 {
@@ -295,21 +303,45 @@ svg:hover path {
 
 #autumn-id {
   display: none;
-}
-
-/* @keyframes showBlock {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  /* visibility: hidden; */
+  /* height: 0; */
 }
 
 .season-animation {
   display: flex;
+  transition-delay: 5s;
+  /* visibility: visible; */
+  /* height: 555px; */
+  animation-delay: 5s;
   animation: showBlock 3s linear forwards;
-} */
+}
+
+@keyframes showBlock {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    display: flex;
+  }
+}
+
+.season-hide-animation {
+  animation: hideBlock 3s linear forwards;
+  /* height: 0; */
+}
+
+@keyframes hideBlock {
+  0% {
+    opacity: 1;
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 
 .form-favorites-season {
   display: flex;
@@ -403,6 +435,7 @@ svg:hover path {
   margin-bottom: 40px;
   position: relative;
   text-align: left;
+  transition: opacity 3s;
 }
 
 .favorites-box-item-img {
@@ -638,12 +671,13 @@ svg:hover path {
   /* width: 50%; */
   /* height: 100%; */
 }
+
 .contacts-map {
   padding-left: 4px;
   width: 100%;
   height: auto;
   max-width: 696px;
-   /* max-height: 414px; */
+  /* max-height: 414px; */
 }
 
 .h3-contacts {
@@ -958,4 +992,229 @@ svg:hover path {
     background-size: cover;
     background-repeat: no-repeat;
   }
+}
+
+/* Modals */
+
+.btn {
+  /* position: relative; */
+  /* border: none; */
+  /* cursor: pointer; */
+  /* background: none; */
+  /* padding: 10px; */
+}
+
+.header {
+  position: relative;
+}
+
+.modal-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal {
+  position: absolute;
+  margin: 0 auto;
+  background-color: #fff;
+  /* width: 0; */
+  top: 80px;
+  right: 20px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* gap: 10px; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  display: none;
+  transition: all 1s ease;
+    overflow: hidden;
+}
+
+.modal-overlay--visible {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+
+.modal--visible {
+  display: block;
+  width: 252px;
+  transition: all 1s ease;
+}
+
+.h4-modal {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  /* 133.333% */
+}
+
+.h4-modal::after {
+  content: '';
+  height: 1px;
+  width: 40px;
+  background: #BB945F;
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.modal--1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  height: 115px;
+  gap: 5px;
+  position: absolute;
+}
+
+.modal-profile-btn {
+  cursor: pointer;
+  padding: 0;
+  /* height: 20px; */
+  /* width: 59px; */
+  border: none;
+  background: none;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 133.333% */
+}
+
+.login-card {
+  padding: 25px;
+  width: 252px;
+  height: 280px;
+}
+
+.register-card {
+  padding: 25px;
+  /* width: 252px; */
+  height: 382px;
+}
+
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: none;
+}
+
+.h3-modal {
+  color: #000;
+  text-align: center;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 100% */
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.h4-login-form,
+.h4-register-form {
+  color: #000;
+  text-align: left;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 133.333% */
+  letter-spacing: 0.3px;
+}
+
+.p-login-form,
+.p-register-form {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.input-login-form,
+.input-register-form {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #BB945F;
+}
+
+.login-form-btn,
+.register-form-btn {
+  cursor: pointer;
+  width: 75px;
+  height: 30px;
+  background: none;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.footer-login-form,
+.footer-register-form {
+  display: flex;
+  align-items: center;
+}
+
+.a-login-form,
+.a-register-form {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  text-decoration: underline;
+  padding-left: 10px;
 }
