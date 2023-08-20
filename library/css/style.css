@@ -289,41 +289,52 @@ svg:hover path {
   margin-bottom: 35px;
 }
 
+.favorites-box.hidden {
+  /* visibility: hidden; */
+  position: absolute;
+  top: -100%;
+  opacity: 0;
+}
+
+.favorites-box {
+  transition: all 1s;
+}
+
 #winter-id {
   /* display: none; */
 }
 
 #spring-id {
-  display: none;
+  /* display: none; */
 }
 
 #summer-id {
-  display: none;
+  /* display: none; */
 }
 
 #autumn-id {
-  display: none;
+  /* display: none; */
   /* visibility: hidden; */
   /* height: 0; */
 }
 
 .season-animation {
-  display: flex;
+  /* display: flex; */
   transition-delay: 5s;
   /* visibility: visible; */
   /* height: 555px; */
-  animation-delay: 5s;
-  animation: showBlock 3s linear forwards;
+  /* animation-delay: 5s; */
+  animation: showBlock 1s linear forwards;
 }
 
 @keyframes showBlock {
   0% {
     opacity: 0;
-    display: none;
+    /* display: none; */
   }
   100% {
     opacity: 1;
-    display: flex;
+    /* display: flex; */
   }
 }
 
@@ -335,11 +346,11 @@ svg:hover path {
 @keyframes hideBlock {
   0% {
     opacity: 1;
-    display: flex;
+    /* display: flex; */
   }
   100% {
     opacity: 0;
-    display: none;
+    /* display: none; */
   }
 }
 
