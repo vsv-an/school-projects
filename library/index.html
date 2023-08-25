@@ -29,7 +29,7 @@
           <li><a href="#library-card" class="nav-link">Library&nbsp;Card</a></li>
         </ul>
       </nav>
-      <button id="profile-btn-id" class="btn profile-btn" data-path="form-popup">
+      <button id="profile-btn-id" class="modal-btn profile-btn" data-path="form-popup">
         <!-- <a href="#"> -->
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -38,21 +38,22 @@
         </svg>
         <!-- </a> -->
       </button>
+      <div class="modal modal--1" data-target="form-popup">
+        <h4 class="h4-modal">Profile</h4>
+        <button class="modal-btn modal-profile-btn" data-path="form-login">Log In</button>
+        <button class="modal-btn modal-profile-btn" data-path="form-register">Register</button>
+      </div>
+      <div class="modal modal--2" data-target="form-popup">
+        <h4 class="h4-modal">Profile</h4>
+        <button class="modal-profile-btn">My profile</button>
+        <button class="modal-profile-btn">Log Out</button>
+      </div>
       <div class="modals">
+
         <div class="modal-overlay">
-          <!-- <div class="modal modal--3" data-target="form-popup">
-            <h4 class="h4-modal">Profile</h4>
-            <button class="modal-profile-btn">Log In</button>
-            <button class="modal-profile-btn">Register</button>
-          </div>
-          <div class="modal modal--2" data-target="form-popup">
-            <h4 class="h4-modal">Profile</h4>
-            <button class="modal-profile-btn">My profile</button>
-            <button class="modal-profile-btn">Log Out</button>
-          </div> -->
 
-          <!-- <div class="modal login-card" data-target="form-popup">
 
+          <div class="modal login-card" data-target="form-login">
               <h3 class="h3-modal">LOGIN</h3>
               <button class="close-btn">
                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +61,6 @@
                   <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
                   </svg>
               </button>
-
             <form action="#" class="login-form">
               <h4 class="h4-login-form">E-mail or readers card</h4>
               <input type="email" class="input-login-form">
@@ -70,11 +70,11 @@
             </form>
             <div class="footer-login-form">
               <p class="p-login-form">Don’t have an account?</p>
-              <a href="#" class="a-login-form">Register</a>
+              <a href="#" class="modal-btn a-login-form" data-path="form-register">Register</a>
             </div>
-          </div> -->
+          </div>
 
-          <div class="modal register-card" data-target="form-popup">
+          <div class="modal register-card" data-target="form-register">
             <!-- <div class="login-card-header"> -->
             <h3 class="h3-modal">REGISTER</h3>
             <button class="close-btn">
@@ -93,11 +93,11 @@
               <input type="email" class="input-register-form">
               <h4 class="h4-register-form">Password</h4>
               <input type="password" class="input-register-form">
-              <button class="register-form-btn">Log In</button>
+              <button class="register-form-btn">Sign Up</button>
             </form>
             <div class="footer-register-form">
               <p class="p-register-form">Already have an account?</p>
-              <a href="#" class="a-register-form">Login</a>
+              <a href="#" class="modal-btn a-register-form" data-path="form-login">Login</a>
             </div>
           </div>
         </div>
@@ -117,41 +117,43 @@
       <h2 class="h2-about">About</h2>
       <p class="p-about">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside
       </p>
-      <div class="slider">
-        <button class="slider-arrow-left">
+      <div class="about-slider">
+        <button class="about-slider-arrow-left about-slider-arrow-inactive">
           <img src="./img/slider/arrow-left.svg" alt="arrow-left">
         </button>
-        <div id="slide1" class="slide first"><img src="./img/slider/image-1.jpg" alt="image-1" class="img"></div>
-        <div id="slide2" class="slide second"><img src="./img/slider/image-2.jpg" alt="image-2" class="img"></div>
-        <div id="slide3" class="slide third"><img src="./img/slider/image-3.jpg" alt="image-3" class="img"></div>
-        <div id="slide4" class="slide fourth"><img src="./img/slider/image-4.jpg" alt="image-3" class="img"></div>
-        <div id="slide5" class="slide fifth"><img src="./img/slider/image-5.jpg" alt="image-3" class="img"></div>
-        <button class="slider-arrow-right">
-          <img src="./img/slider/arrow-right.svg" alt="arrow-left">
+        <div class="about-slider-wrapper">
+          <div class="about-slider-inner">
+            <div id="slide1" class="about-slide"><img src="./img/slider/image-1.jpg" alt="image-1" loading="lazy"></div>
+            <div id="slide2" class="about-slide"><img src="./img/slider/image-2.jpg" alt="image-2" loading="lazy"></div>
+            <div id="slide3" class="about-slide"><img src="./img/slider/image-3.jpg" alt="image-3" loading="lazy"></div>
+            <div id="slide4" class="about-slide"><img src="./img/slider/image-4.jpg" alt="image-3" loading="lazy"></div>
+            <div id="slide5" class="about-slide"><img src="./img/slider/image-5.jpg" alt="image-3" loading="lazy"></div>
+          </div>
+        </div>
+
+        <button class="about-slider-arrow-right">
+          <img src="./img/slider/arrow-right.svg" alt="arrow-right">
         </button>
       </div>
+
       <div class="slider-pagination">
-        <label for="slider-radio1" id="label-slider-radio1" class="slider-manual-btn">
-          <input type="radio" name="slider-btn" id="slider-radio1" checked>
-          <span></span>
-        </label>
-        <label id="label-slider-radio" for="slider-radio2" class="slider-manual-btn">
-          <input type="radio" name="slider-btn" id="slider-radio2">
-          <span></span>
-        </label>
-        <label for="slider-radio3" id="label-slider-radio3" class="slider-manual-btn">
-          <input type="radio" name="slider-btn" id="slider-radio3">
-          <span></span>
-        </label>
-        <label for="slider-radio4" id="label-slider-radio4" class="slider-manual-btn">
-          <input type="radio" name="slider-btn" id="slider-radio4">
-          <span></span>
-        </label>
-        <label for="slider-radio5" id="label-slider-radio5" class="slider-manual-btn">
-          <input type="radio" name="slider-btn" id="slider-radio5">
-          <span></span>
-        </label>
+        <div id="slider-manual-btn-1" class="slider-manual-btn slider-manual-btn-active">
+          <span class="slider-manual-btn-span slider-manual-btn-span-active"></span>
+        </div>
+        <div id="slider-manual-btn-2" class="slider-manual-btn">
+          <span class="slider-manual-btn-span"></span>
+        </div>
+        <div id="slider-manual-btn-3" class="slider-manual-btn">
+          <span class="slider-manual-btn-span"></span>
+        </div>
+        <div id="slider-manual-btn-4" class="slider-manual-btn">
+          <span class="slider-manual-btn-span"></span>
+        </div>
+        <div id="slider-manual-btn-5" class="slider-manual-btn">
+          <span class="slider-manual-btn-span"></span>
+        </div>
       </div>
+
     </section>
     <section id="favorites" class="favorites">
       <h2 class="h2-favorites">Favorites</h2>
@@ -517,8 +519,8 @@
           <div class="p-library-card-box-right-column">You will be able to see a reader card after logging into account
             or you can register a new account</div>
           <div class="btn-right-column-box">
-            <button class="btn-sign-up">Sign Up</button>
-            <button class="btn-log-in">Log in</button>
+            <button class="modal-btn btn-sign-up" data-path="form-register">Sign Up</button>
+            <button class="modal-btn btn-log-in" data-path="form-login">Log in</button>
           </div>
         </div>
       </div>
@@ -576,7 +578,7 @@
   </div>
 </footer>
 
-<!-- <script src="./js/slider.js"></script> -->
+<script src="./js/slider.js"></script>
 <script src="./js/modals.js"></script>
 <script src="./js/seasons.js"></script>
 <script src="./js/hamburger.js"></script>
