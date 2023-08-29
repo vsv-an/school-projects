@@ -63,6 +63,12 @@ body._lock {
     z-index: 2;
   }
 
+  .initials {
+    padding-left: 0;
+    margin-right: 40px;
+    z-index: 2;
+  }
+
   #profile-btn-id {
     order: 1;
   }
