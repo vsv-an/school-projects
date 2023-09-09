@@ -153,7 +153,7 @@ svg:hover path {
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background: rgba(0, 0, 0, 0.7); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,7 +164,14 @@ svg:hover path {
   overflow: hidden;
 }
 
-
+/* .modal-profile-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+} */
 
 .modal {
   /* position: relative; */
@@ -347,6 +354,7 @@ svg:hover path {
   width: 200px;
   height: 20px;
   border: 1px solid #BB945F;
+  padding-left: 5px;
 }
 
 .login-form-btn,
@@ -426,9 +434,11 @@ svg:hover path {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin-top: 15px;
+  padding: 5px 0;
   width: 120px;
-  height: 30px;
+  /* height: 30px; */
   background: #fff;
   color: #000;
   font-family: Inter;
@@ -578,6 +588,126 @@ svg:hover path {
 
 .my-profile-card-number-copy {
   cursor: pointer;
+}
+
+.buy-card {
+  width: 640px;
+  height: 540px;
+  background: #fff;
+}
+
+.h3-buy-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  color: #FFF;
+  text-align: center;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: #0C0C0E;
+  margin-bottom: 30px;
+}
+
+.buy-card-table {
+  display: flex;
+}
+
+.buy-card-left-column {
+  padding: 0 40px;
+  /* position: relative; */
+}
+
+.buy-card-label {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.buy-card-input {
+  width: 200px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1px solid #BB945F;
+}
+
+.p-buy-card-left-column {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.expiration-code {
+  display: flex;
+  gap: 10px;
+}
+
+.expiration-code-input,
+.cvc-input {
+  width: 40px;
+}
+
+.buy-card-form-btn {
+  display: flex;
+  padding-left: 0;
+  justify-content: start;
+  align-items: end;
+  gap: 25px;
+}
+
+.buy-card-btn {
+  width: 75px;
+  height: 30px;
+  /* margin-left: 20px; */
+  position: absolute;
+  bottom: 40px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  background: #fff;
+}
+
+.buy-card-btn:hover {
+  cursor: pointer;
+  background: #BB945F;
+  transition: 0.3s ease-in-out;
+}
+
+.buy-card-price {
+  position: absolute;
+  bottom: 40px;
+  left: 140px;
+  color: #0C0C0E;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.p-buy-card-right-column {
+  width: 330px;
+  color: #8E8E8E;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
 }
 
 /* Welcome */
@@ -759,71 +889,43 @@ svg:hover path {
   margin-bottom: 35px;
 }
 
+.favorites-box {
+  position: relative;
+}
+
 .favorites-box.hidden {
-  /* visibility: hidden; */
+  visibility: hidden;
   position: absolute;
   /* top: -100%; */
-  opacity: 0;
-}
-
-.favorites-box {
-  /* transition: all 1s; */
-}
-
-#winter-id {
-  /* display: none; */
-}
-
-#spring-id {
-  /* display: none; */
-}
-
-#summer-id {
-  /* display: none; */
-}
-
-#autumn-id {
-  /* display: none; */
-  /* visibility: hidden; */
-  /* height: 0; */
+  /* opacity: 0; */
 }
 
 .season-animation {
-  /* display: flex; */
-  /* transition-delay: 5s; */
-  /* visibility: visible; */
-  /* height: 555px; */
-  /* animation-delay: 5s; */
-  animation: showBlock 1s linear forwards;
+  animation: showBlock 3s linear forwards;
 }
 
 @keyframes showBlock {
   0% {
     opacity: 0;
-    /* display: none; */
   }
 
   100% {
     opacity: 1;
-    /* display: flex; */
   }
 }
 
 .season-hide-animation {
-  animation: hideBlock 3s linear forwards;
-  /* height: 0; */
+  animation: hideBlock 2s linear forwards;
 }
 
 @keyframes hideBlock {
   0% {
     opacity: 1;
-    /* display: flex; */
   }
 
   100% {
     opacity: 0;
-    /* display: none; */
-  }
+   }
 }
 
 .form-favorites-season {
@@ -1008,6 +1110,14 @@ svg:hover path {
   transition: 0.3s ease-in-out;
 }
 
+.btn-buy-hidden {
+  display: none;
+}
+
+.btn-buy-hidden[data-target="buy-book"] {
+  /* display: block; */
+}
+
 .btn-own {
   width: 75px;
   height: 30px;
@@ -1019,6 +1129,7 @@ svg:hover path {
   border: 1px solid #BB945F;
   color: #BB945F;
   background: #fff;
+  pointer-events: none;
 }
 
 .h2-coffee-shop {
@@ -1245,6 +1356,9 @@ svg:hover path {
 }
 
 .check-the-card-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 600px;
   height: 386px;
   flex-shrink: 0;
@@ -1267,7 +1381,7 @@ svg:hover path {
   flex-direction: column;
 }
 
-.h3-chek-the-card-form {
+.h3-check-the-card-form {
   margin: 20px 246px 5px 20px;
   color: #000;
   font-family: Forum;
@@ -1278,7 +1392,7 @@ svg:hover path {
   letter-spacing: 0.6px;
 }
 
-.input-check-the-card-form {
+.check-the-card-form-input {
   margin: 15px 20px 10px 20px;
   width: 520px;
   height: 66px;
@@ -1297,7 +1411,7 @@ svg:hover path {
   padding-left: 20px;
 }
 
-.input-check-the-card-form::placeholder {
+.check-the-card-form-input::placeholder {
   color: #8E8E8E;
   font-family: Forum;
   font-size: 30px;
@@ -1308,6 +1422,8 @@ svg:hover path {
 }
 
 .btn-check-the-card {
+  /* display: flex; */
+  text-align: center;
   width: 242px;
   height: 44px;
   padding: 10px 0;
@@ -1328,6 +1444,55 @@ svg:hover path {
   cursor: pointer;
   background: #BB945F;
   transition: 0.3s ease-in-out;
+}
+
+.check-the-card-info-block {
+  display: flex;
+  justify-content: center;
+}
+
+.check-the-card-list {
+  display: flex;
+  gap: 35px;
+}
+
+.check-the-card-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.check-the-card-list-name {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+.check-the-card-list-count {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+.check-the-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .library-card-box-right-column {

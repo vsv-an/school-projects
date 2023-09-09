@@ -29,8 +29,8 @@
           <li><a href="#library-card" class="nav-link">Library&nbsp;Card</a></li>
         </ul>
       </nav>
-      <button id="profile-btn-id" class="modal-btn profile-btn" data-path="form-modal--1">
-
+      <!-- <button id="profile-btn-id" class="modal-btn profile-btn" data-path="form-modal--1"> -->
+        <button id="profile-btn-id" class="profile-svg-btn profile-btn" data-path="form-modal--1">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z"
@@ -40,16 +40,16 @@
           <span></span>
         </div> -->
       </button>
-      <div class="initials modal-btn profile-btn-hidden" data-path="form-modal--2">
+      <div class="initials profile-svg-hidden-btn profile-btn-hidden" data-path="form-modal--2">
         <!-- <span></span> -->
       </div>
 
-      <div class="modal modal--1" data-target="form-modal--1">
+      <div id="id-modal--1" class="modal modal--1" data-target="form-modal--1">
         <h4 class="h4-modal h4-modal--1">Profile</h4>
         <button class="modal-btn modal-profile-btn" data-path="form-login">Log In</button>
         <button class="modal-btn modal-profile-btn" data-path="form-register">Register</button>
       </div>
-      <div class="modal modal--2" data-target="form-modal--2">
+      <div  id="id-modal--2" class="modal modal--2" data-target="form-modal--2">
         <h4 class="h4-modal h4-modal--2"></h4>
         <button class="modal-btn modal-profile-btn" data-path="my-profile">My profile</button>
         <button class="modal-btn modal-profile-btn log-out-btn">Log Out</button>
@@ -69,9 +69,9 @@
             </button>
             <form action="#" class="login-form">
               <h4 class="h4-login-form">E-mail or readers card</h4>
-              <input type="email" class="login-form-input login-form-input-email">
+              <input type="email" class="login-form-input login-form-input-email" required>
               <h4 class="h4-login-form">Password</h4>
-              <input type="password" class="login-form-input login-form-input-password">
+              <input type="password" class="login-form-input login-form-input-password" minlength="8" title="Min length 8 symbols." required>
               <button class="login-form-btn login-form-btn-submit">Log In</button>
             </form>
             <div class="footer-login-form">
@@ -92,13 +92,13 @@
             <!-- </div> -->
             <form action="#" class="register-form">
               <h4 class="h4-register-form">First name</h4>
-              <input type="text" class="register-form-input register-form-input-firstname">
+              <input type="text" class="register-form-input register-form-input-firstname" pattern="^[a-zA-Z]+$" title="please enter only letters" required>
               <h4 class="h4-register-form">Last name</h4>
-              <input type="text" class="register-form-input register-form-input-surname">
+              <input type="text" class="register-form-input register-form-input-surname" pattern="^[a-zA-Z]+$" title="please enter only letters" required>
               <h4 class="h4-register-form">E-mail</h4>
-              <input type="email" class="register-form-input register-form-input-email">
+              <input type="email" class="register-form-input register-form-input-email" required>
               <h4 class="h4-register-form">Password</h4>
-              <input type="password" class="register-form-input register-form-input-password">
+              <input type="password" class="register-form-input register-form-input-password" minlength="8" title="Min length 8 symbols." required>
               <button class="register-form-btn-submit">Sign Up</button>
             </form>
             <div class="footer-register-form">
@@ -133,38 +133,98 @@
                 <li class="my-profile-list-item">
                   <span class="my-profile-list-item-name">Bonuses</span>
                   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
-                    </svg>
+                    <path
+                      d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z"
+                      fill="#BB945F" />
+                  </svg>
                   <span class="my-profile-list-count my-profile-list-bonuses-count">1240</span>
                 </li>
                 <li class="my-profile-list-item">
                   <span class="my-profile-list-item-name">Books</span>
                   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="20" height="21" fill="#BB945F"/>
-                    <rect x="2" width="1" height="19" fill="#826844"/>
-                    <rect x="1" width="1" height="21" fill="white"/>
-                    </svg>
+                    <rect width="20" height="21" fill="#BB945F" />
+                    <rect x="2" width="1" height="19" fill="#826844" />
+                    <rect x="1" width="1" height="21" fill="white" />
+                  </svg>
                   <span class="my-profile-list-count my-profile-list-books-count">2</span>
                 </li>
               </ul>
               <h4 class="h4-rented-books">Rented books</h4>
               <ul class="my-profile-list-books">
-                <li class="my-profile-list-books-item">
+                <!-- <li class="my-profile-list-books-item">
                   The Last Queen, Clive Irving
-                </li>
-                <li class="my-profile-list-books-item">
+                </li> -->
+                <!-- <li class="my-profile-list-books-item">
                   Dominicana, Angie Cruz
-                </li>
+                </li> -->
               </ul>
               <div class="my-profile-card-number">
                 <p class="p-my-profile-card-number">Card number</p>
                 <span class="span-my-pofile-card-number">F00234030</span>
-                <svg class="my-profile-card-number-copy" width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
-                  <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
-                  </svg>
+                <svg class="my-profile-card-number-copy" width="14" height="12" viewBox="0 0 14 12" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5" />
+                  <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black"
+                    stroke-width="0.5" />
+                </svg>
               </div>
             </div>
+          </div>
+
+          <div class="modal buy-card" data-target="buy-card">
+            <button class="close-btn">
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 16.8507L17 2" stroke="white" stroke-width="3" />
+                <path d="M2 2.14929L17 17" stroke="white" stroke-width="3" />
+              </svg>
+            </button>
+            <h3 class="h3-buy-card">BUY A LIBRARY CARD</h3>
+            <div class="buy-card-table">
+              <div class="buy-card-left-column">
+                <form action="" class="buy-card-form">
+                  <label for="bank-card-number" class="buy-card-label bank-card-number">
+                    <span class="p-buy-card-left-column">Bank card number</span>
+                    <input class="buy-card-input" type="text" id="bank-card-number" minlength="16" maxlength="16" title="Enter 16 digits" required>
+                  </label>
+                  <label for="expiration-code" class="buy-card-label bank-card-number">
+                    <span class="p-buy-card-left-column">Expiration code</span>
+                    <div class="expiration-code">
+                      <input class="buy-card-input expiration-code-input" type="text" id="expiration-code-month">
+                      <input class="buy-card-input expiration-code-input" type="text" id="expiration-code-year">
+                    </div>
+                  </label>
+                  <label for="cvc" class="buy-card-label bank-card-number">
+                    <span class="p-buy-card-left-column">CVC</span>
+                    <input class="buy-card-input cvc-input" type="text" id="cvc">
+                  </label>
+                  <label for="cardholder-name" class="buy-card-label bank-card-number">
+                    <span class="p-buy-card-left-column">Cardholder name</span>
+                    <input class="buy-card-input cardholder-name-input" type="text" id="cardholder-name">
+                  </label>
+                  <label for="postal-code" class="buy-card-label bank-card-number">
+                    <span class="p-buy-card-left-column">Postal code</span>
+                    <input class="buy-card-input cardholder-name-input" type="text" id="postal-code">
+                  </label>
+                  <label for="city-name" class="buy-card-label bank-card-number">
+                    <span class="p-buy-card-left-column">City / Town</span>
+                    <input class="buy-card-input city-name-input" type="text" id="city-name">
+                  </label>
+                  <div class="buy-card-form-btn">
+                    <button class="buy-card-btn" type="button" data-path="form-login">Buy</button>
+                    <span class="buy-card-price">$ 25.00</span>
+                  </div>
+                </form>
+
+              </div>
+              <div class="buy-card-right-column">
+                <p class="p-buy-card-right-column">
+                  If you are live, work, attend school, or pay property taxes in New York State, you can get a $25
+                  digital library card right now using this online form. Visitors to New York State can also use this
+                  form to apply for a temporary card.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -226,26 +286,29 @@
       <h3 class="h3-favorites">Pick favorites of season</h3>
       <div class="form-favorites-season">
         <label id="winter-label" class="favorites-label" for="winter">
-          <input type="radio" id="winter" name="season" value="winter" data-visible="winter" checked>
+          <!-- <input type="radio" id="winter" name="season" value="winter" data-visible="winter" checked> -->
+          <input type="radio" id="winter" name="season" value="winter" data-path="winter" checked>
+
           <span>Winter</span>
         </label>
         <label class="favorites-label" for="spring">
-          <input type="radio" id="spring" name="season" value="spring" data-visible="spring">
+          <input type="radio" id="spring" name="season" value="spring" data-path="spring">
           <span>Spring</span>
         </label>
         <label class="favorites-label" for="summer">
-          <input type="radio" id="summer" name="season" value="summer" data-visible="summer">
+          <input type="radio" id="summer" name="season" value="summer" data-path="summer">
           <span>Summer</span>
         </label>
         <label class="favorites-label" for="autumn">
-          <input id="autumn" type="radio" name="season" value="autumn" data-visible="autumn">
+          <input id="autumn" type="radio" name="season" value="autumn" data-path="autumn">
           <span>Autumn</span>
         </label>
       </div>
       <div class="favorites-box-wrapper">
-        <ul id="winter-id" class="favorites-box winter" data-visible="winter">
+        <!-- <ul id="winter-id" class="favorites-box winter" data-visible="winter"> -->
+        <ul id="winter-id" class="favorites-box winter" data-target="winter">
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="The Book Eaters" data-author="Sunyi Dean">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">THE BOOK EATERS</h4>
               <h4 class="h4-favorites-box-author">By Sunyi Dean</h4>
@@ -254,89 +317,95 @@
                 her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family
                 values,
                 light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart. </p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/winter-book1.jpg" alt="winter-book1" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Cackle" data-author="Rachel Harrison">
               <h3 class="h3-favorites-box">Staff Picks</h3>
-              <h4 class="h4-favorites-box-title">CACKLE</h4>
+              <h4 class="h4-favorites-box-title">Cackle</h4>
               <h4 class="h4-favorites-box-author">By Rachel Harrison</h4>
               <p class="favorites-box-text">Are your Halloween movies of choice The Witches of Eastwick and Practical
                 Magic?
                 Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate
                 New
                 York and befriends a beautiful witch.</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/winter-book2.jpg" alt="winter-book2" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item"  data-book="Dante: Poet of the Secular World" data-author="Erich Auerbach">
               <h3 class="h3-favorites-box">Staff Picks</h3>
-              <h4 class="h4-favorites-box-title">DANTE: POET OF THE SECULAR WORLD</h4>
+              <h4 class="h4-favorites-box-title">Dante: Poet of the Secular World</h4>
               <h4 class="h4-favorites-box-author">By Erich Auerbach</h4>
               <p class="favorites-box-text">Auerbach's engaging book places the 'Comedy' within the tradition of epic,
                 tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and
                 his
                 drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/winter-book3.jpg" alt="winter-book3" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="The Last Queen" data-author="Clive Irving">
               <h3 class="h3-favorites-box">Staff Picks</h3>
-              <h4 class="h4-favorites-box-title">THE LAST QUEEN</h4>
+              <h4 class="h4-favorites-box-title">The Last Queen</h4>
               <h4 class="h4-favorites-box-author">By Clive Irving</h4>
               <p class="favorites-box-text">A timely and revelatory new biography of Queen Elizabeth (and her family)
                 exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-              <!-- <button class="btn-own" type="button" disabled>Own</button> -->
-              <button class="btn-buy" type="button">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/winter-book4.jpg" alt="winter-book4" class="favorites-box-item-img">
             </div>
           </li>
 
         </ul>
 
-        <ul id="spring-id" class="favorites-box spring hidden" data-visible="spring">
+        <ul id="spring-id" class="favorites-box spring hidden" data-target="spring">
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="The Body" data-author="Stephen King">
               <h3 class="h3-favorites-box">Staff Picks</h3>
-              <h4 class="h4-favorites-box-title">THE BODY</h4>
+              <h4 class="h4-favorites-box-title">The Body</h4>
               <h4 class="h4-favorites-box-author">By Stephen King</h4>
               <p class="favorites-box-text">Powerful novel that takes you back to a nostalgic time, exploring both the
                 beauty and danger and loss of innocence that is youth.</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/spring-book1.jpg" alt="winter-book1" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item"  data-book="Carry: A Memoir of Survival on Stolen Land" data-author="Toni Jenson">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Carry: A Memoir of Survival on Stolen Land</h4>
               <h4 class="h4-favorites-box-author">By Toni Jenson</h4>
               <p class="favorites-box-text">This memoir about the author's relationship with gun violence feels both
                 expansive and intimate, resulting in a lyrical indictment of the way things are.</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/spring-book2.jpg" alt="winter-book2" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Days of Distraction" data-author="SAlexandra Chang">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Days of Distraction</h4>
               <h4 class="h4-favorites-box-author">By Alexandra Chang</h4>
               <p class="favorites-box-text">A sardonic view of Silicon Valley culture, a meditation on race, and a
                 journal
                 of displacement and belonging, all in one form-defying package of spare prose.</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/spring-book3.jpg" alt="winter-book3" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Dominicana" data-author="Angie Cruz">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Dominicana</h4>
               <h4 class="h4-favorites-box-author">By Angie Cruz</h4>
@@ -344,16 +413,16 @@
                 the
                 promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate.
                 For fans of Isabel Allende and Julia Alvarez.</p>
-              <!-- <button class="btn-own" type="button" disabled>Own</button> -->
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/spring-book4.jpg" alt="winter-book4" class="favorites-box-item-img">
             </div>
           </li>
         </ul>
 
-        <ul id="summer-id" class="favorites-box summer hidden" data-visible="summer">
+        <ul id="summer-id" class="favorites-box summer hidden" data-target="summer">
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Dominicana" data-author="Angie Cruz">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Crude: A Memoir</h4>
               <h4 class="h4-favorites-box-author">By Pablo Fajardo & ​​Sophie Tardy-Joubert</h4>
@@ -361,50 +430,54 @@
                 a
                 group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields
                 did to the Amazon and her people</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/summer-book1.jpg" alt="winter-book1" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Let My People Go Surfing" data-author="Yvon Chouinard">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Let My People Go Surfing</h4>
               <h4 class="h4-favorites-box-author">By Yvon Chouinard</h4>
               <p class="favorites-box-text">Chouinard—climber, businessman, environmentalist—shares tales of courage and
                 persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go
                 Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/summer-book2.jpg" alt="winter-book2" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="The Octopus Museum: Poems" data-author="Brenda Shaughnessy">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">The Octopus Museum: Poems</h4>
               <h4 class="h4-favorites-box-author">By Brenda Shaughnessy</h4>
               <p class="favorites-box-text">This collection of bold and scathingly beautiful feminist poems imagines
                 what
                 comes after our current age of environmental destruction, racism, sexism, and divisive politics.</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/summer-book3.jpg" alt="winter-book3" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Shark Dialogues: A Novel" data-author="Kiana Davenport">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Shark Dialogues: A Novel</h4>
               <h4 class="h4-favorites-box-author">By Kiana Davenport</h4>
               <p class="favorites-box-text">An epic saga of seven generations of one family encompasses the tumultuous
                 history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of
                 villains and dreamers, queens and revolutionaries, lepers and healers.</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/summer-book4.jpg" alt="winter-book4" class="favorites-box-item-img">
             </div>
           </li>
         </ul>
-        <ul id="autumn-id" class="favorites-box autumn hidden" data-visible="autumn">
+        <ul id="autumn-id" class="favorites-box autumn hidden" data-target="autumn">
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Casual Conversation" data-author="Renia White">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Casual Conversation</h4>
               <h4 class="h4-favorites-box-author">By Renia White</h4>
@@ -412,43 +485,47 @@
                 concepts of conversation and the casual - both what we say to each other and what we don't, examining
                 the
                 possibilities around how we construct and communicate identity. </p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/autumn-book1.jpg" alt="winter-book1" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="The Great Fire" data-author="Lou Ureneck">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">The Great Fire</h4>
               <h4 class="h4-favorites-box-author">By Lou Ureneck</h4>
               <p class="favorites-box-text">The harrowing story of an ordinary American and a principled Naval officer
                 who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a
                 million refugees from the Armenian Genocide</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/autumn-book2.jpg" alt="winter-book2" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Rickey: The Life and Legend" data-author="Howard Bryant">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Rickey: The Life and Legend</h4>
               <h4 class="h4-favorites-box-author">By Howard Bryant</h4>
               <p class="favorites-box-text">With the fall rolling around, one can't help but think of baseball's
                 postseason coming up! And what better way to prepare for it than reading the biography of one of the
                 game's all-time greatest performers, the Man of Steal, Rickey Henderson?</p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/autumn-book3.jpg" alt="winter-book3" class="favorites-box-item-img">
             </div>
           </li>
           <li class="favorites-box-card">
-            <div class="favorites-box-item">
+            <div class="favorites-box-item" data-book="Slug: And Other Stories" data-author="Megan Milks">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Slug: And Other Stories</h4>
               <h4 class="h4-favorites-box-author">By Megan Milks</h4>
               <p class="favorites-box-text">Exes Tegan and Sara find themselves chained together by hairballs of
                 codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
               </p>
-              <button class="btn-buy" type="button">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/autumn-book4.jpg" alt="winter-book4" class="favorites-box-item-img">
             </div>
           </li>
@@ -571,11 +648,16 @@
           <h3 class="h3-library-card-left-column">Find your Library card</h3>
           <form class="check-the-card-form">
             <div class="check-the-card-form-inner-block">
-              <h3 class="h3-chek-the-card-form">Brooklyn Public Library</h3>
-              <input class="input-check-the-card-form" type="text" placeholder="Reader's name"
-                pattern="^[a-zA-Z0-9\-\s]+$" title="please enter only letters, numbers and -" required>
-              <input class="input-check-the-card-form" type="text" placeholder="Card number"
-                pattern="^[a-zA-Z0-9\-\s]+$" title="please enter only letters, numbers and -" required>
+              <h3 class="h3-check-the-card-form">Brooklyn Public Library</h3>
+              <input class="check-the-card-form-input check-the-card-form-input-reader-name" type="text"
+                placeholder="Reader's name" pattern="^[a-zA-Z0-9\-\s]+$"
+                title="please enter only letters, numbers and -" required>
+              <input class="check-the-card-form-input check-the-card-form-input-card-number" type="text"
+                placeholder="Card number" pattern="^[a-zA-Z0-9\-\s]+$" title="please enter only letters, numbers and -"
+                required>
+            </div>
+            <div class="check-the-card-info-block">
+              <!-- <button class="btn-check-the-card">Check the card</button> -->
             </div>
             <button class="btn-check-the-card">Check the card</button>
           </form>
