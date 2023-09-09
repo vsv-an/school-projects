@@ -50,6 +50,7 @@ profileIconHiddenButton.addEventListener('click', () => {
 closeBtn.forEach((el) => {
   el.addEventListener('click', (el) => {
     modalOverlay.classList.remove('modal-overlay--visible');
+    modalOverlay.style.background = 'none';
     document.body.style.overflow = '';
     modals.forEach((el) => {
       el.classList.remove('modal--visible');
@@ -80,6 +81,7 @@ modalOverlay.addEventListener('click', (e) => {
 
   if (e.target == modalOverlay || e.target == hamburger) {
     modalOverlay.classList.remove('modal-overlay--visible');
+    modalOverlay.style.background = 'none';
     document.body.style.overflow = '';
     modals.forEach((el) => {
       el.classList.remove('modal--visible');
@@ -108,6 +110,7 @@ registerNewUser.addEventListener('click', () => {
     localStorage.setItem('buyCard', false);
     localStorage.setItem('booksCount', 0);
     modalOverlay.classList.remove('modal-overlay--visible');
+    modalOverlay.style.background = 'none';
     modals.forEach((el) => {
       el.classList.remove('modal--visible');
     });
@@ -216,6 +219,7 @@ loginUser.addEventListener('click', () => {
     localStorage.setItem('active', true);
     localStorage.setItem('visits', +localStorage.getItem('visits') + 1);
     modalOverlay.classList.remove('modal-overlay--visible');
+    modalOverlay.style.background = 'none';
     modals.forEach((el) => {
       el.classList.remove('modal--visible');
     });
@@ -267,6 +271,7 @@ document.querySelector('.buy-card-btn').addEventListener('click', () => {
     localStorage.setItem('buyCard', true);
     localStorage.setItem('booksCount', +localStorage.getItem('booksCount') + 0);
     modalOverlay.classList.remove('modal-overlay--visible');
+    modalOverlay.style.background = 'none';
     modals.forEach((el) => {
       el.classList.remove('modal--visible');
     });
