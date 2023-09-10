@@ -447,6 +447,7 @@ svg:hover path {
   font-weight: 400;
   line-height: 20px;
   text-transform: capitalize;
+  word-break: break-all;
 }
 
 .my-profile-right-column {
@@ -535,9 +536,9 @@ svg:hover path {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-
   letter-spacing: 2px;
   text-transform: capitalize;
+  /* word-break: break-all; */
 }
 
 .my-profile-list-books {
@@ -693,6 +694,12 @@ svg:hover path {
   cursor: pointer;
   background: #BB945F;
   transition: 0.3s ease-in-out;
+}
+
+.buy-card-btn-disabled {
+  color: gray;
+  border: solid 1px gray;
+  pointer-events: none;
 }
 
 .buy-card-price {
@@ -911,7 +918,7 @@ svg:hover path {
 }
 
 .season-animation {
-  animation: showBlock 3s linear forwards;
+  animation: showBlock 1.5s linear forwards;
 }
 
 @keyframes showBlock {
@@ -925,7 +932,7 @@ svg:hover path {
 }
 
 .season-hide-animation {
-  animation: hideBlock 2s linear forwards;
+  animation: hideBlock 1s linear forwards;
 }
 
 @keyframes hideBlock {

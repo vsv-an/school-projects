@@ -58,7 +58,6 @@
 
         <div class="modal-overlay">
 
-
           <div class="modal login-card" data-target="form-login">
             <h3 class="h3-modal">LOGIN</h3>
             <button class="close-btn">
@@ -69,14 +68,14 @@
             </button>
             <form action="#" class="login-form">
               <h4 class="h4-login-form">E-mail or readers card</h4>
-              <input type="email" class="login-form-input login-form-input-email" required>
+              <input type="email" class="login-form-input login-form-input-email" autocomplete="off" required>
               <h4 class="h4-login-form">Password</h4>
-              <input type="password" class="login-form-input login-form-input-password" minlength="8" title="Min length 8 symbols." required>
+              <input type="password" class="login-form-input login-form-input-password" autocomplete="off" minlength="8" title="Min length 8 symbols." required>
               <button class="login-form-btn login-form-btn-submit">Log In</button>
             </form>
             <div class="footer-login-form">
               <p class="p-login-form">Don’t have an account?</p>
-              <a href="#" class="modal-btn a-login-form" data-path="form-register">Register</a>
+              <a class="modal-btn a-login-form" data-path="form-register">Register</a>
             </div>
           </div>
 
@@ -92,18 +91,18 @@
             <!-- </div> -->
             <form action="#" class="register-form">
               <h4 class="h4-register-form">First name</h4>
-              <input type="text" class="register-form-input register-form-input-firstname" pattern="^[a-zA-Z]+$" title="please enter only letters" required>
+              <input type="text" class="register-form-input register-form-input-firstname" data-register-input="firstName" autocomplete="off" pattern="^[a-zA-Z]+$" title="please enter only letters" required>
               <h4 class="h4-register-form">Last name</h4>
-              <input type="text" class="register-form-input register-form-input-surname" pattern="^[a-zA-Z]+$" title="please enter only letters" required>
+              <input type="text" class="register-form-input register-form-input-surname" data-register-input="Surname" autocomplete="off" pattern="^[a-zA-Z]+$" title="please enter only letters" required>
               <h4 class="h4-register-form">E-mail</h4>
-              <input type="email" class="register-form-input register-form-input-email" required>
+              <input type="email" class="register-form-input register-form-input-email" data-register-input="email" autocomplete="off" required>
               <h4 class="h4-register-form">Password</h4>
-              <input type="password" class="register-form-input register-form-input-password" minlength="8" title="Min length 8 symbols." required>
+              <input type="password" class="register-form-input register-form-input-password"data-register-input="password" autocomplete="off" minlength="8" title="Min length 8 symbols." required>
               <button class="register-form-btn-submit">Sign Up</button>
             </form>
             <div class="footer-register-form">
               <p class="p-register-form">Already have an account?</p>
-              <a href="#" class="modal-btn a-register-form" data-path="form-login">Login</a>
+              <a class="modal-btn a-register-form" data-path="form-login">Login</a>
             </div>
           </div>
 
@@ -184,33 +183,33 @@
                 <form action="" class="buy-card-form">
                   <label for="bank-card-number" class="buy-card-label bank-card-number">
                     <span class="p-buy-card-left-column">Bank card number</span>
-                    <input class="buy-card-input" type="text" id="bank-card-number" minlength="16" maxlength="16" title="Enter 16 digits" required>
+                    <input class="buy-card-input" type="text" id="bank-card-number" autocomplete="off" minlength="16" maxlength="16" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Enter 16 digits" required>
                   </label>
                   <label for="expiration-code" class="buy-card-label bank-card-number">
                     <span class="p-buy-card-left-column">Expiration code</span>
                     <div class="expiration-code">
-                      <input class="buy-card-input expiration-code-input" type="text" id="expiration-code-month">
-                      <input class="buy-card-input expiration-code-input" type="text" id="expiration-code-year">
+                      <input class="buy-card-input expiration-code-input" type="text" id="expiration-code-month" autocomplete="off" minlength="2" maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Enter 2 digits" required>
+                      <input class="buy-card-input expiration-code-input" type="text" id="expiration-code-year" autocomplete="off" minlength="2" maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Enter 2 digits" required>
                     </div>
                   </label>
                   <label for="cvc" class="buy-card-label bank-card-number">
                     <span class="p-buy-card-left-column">CVC</span>
-                    <input class="buy-card-input cvc-input" type="text" id="cvc">
+                    <input class="buy-card-input cvc-input" type="text" id="cvc" autocomplete="off" minlength="3" maxlength="3" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Enter 3 digits" required>
                   </label>
                   <label for="cardholder-name" class="buy-card-label bank-card-number">
                     <span class="p-buy-card-left-column">Cardholder name</span>
-                    <input class="buy-card-input cardholder-name-input" type="text" id="cardholder-name">
+                    <input class="buy-card-input cardholder-name-input" type="text" id="cardholder-name" autocomplete="off" oninput="this.value = this.value.replace(/[^a-zа-я]/gi, '').replace(/(\..*?)\..*/g, '$1');" title="Please, enter only letters" required>
                   </label>
                   <label for="postal-code" class="buy-card-label bank-card-number">
                     <span class="p-buy-card-left-column">Postal code</span>
-                    <input class="buy-card-input cardholder-name-input" type="text" id="postal-code">
+                    <input class="buy-card-input cardholder-name-input" type="text" id="postal-code" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Plese, enter only numbers" required>
                   </label>
                   <label for="city-name" class="buy-card-label bank-card-number">
                     <span class="p-buy-card-left-column">City / Town</span>
-                    <input class="buy-card-input city-name-input" type="text" id="city-name">
+                    <input class="buy-card-input city-name-input" type="text" id="city-name" autocomplete="off" oninput="this.value = this.value.replace(/[^a-zа-я]/gi, '').replace(/(\..*?)\..*/g, '$1');" title="Please, enter only letters" required>
                   </label>
                   <div class="buy-card-form-btn">
-                    <button class="buy-card-btn" type="button" data-path="form-login">Buy</button>
+                    <button class="buy-card-btn buy-card-btn-disabled" type="button" data-path="form-login">Buy</button>
                     <span class="buy-card-price">$ 25.00</span>
                   </div>
                 </form>
@@ -317,7 +316,7 @@
                 her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family
                 values,
                 light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart. </p>
-              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login" data-btn="1">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/winter-book1.jpg" alt="winter-book1" class="favorites-box-item-img">
             </div>
@@ -332,7 +331,7 @@
                 Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate
                 New
                 York and befriends a beautiful witch.</p>
-              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login" data-btn="2">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/winter-book2.jpg" alt="winter-book2" class="favorites-box-item-img">
             </div>
@@ -346,7 +345,7 @@
                 tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and
                 his
                 drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
-              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login" data-btn="3">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/winter-book3.jpg" alt="winter-book3" class="favorites-box-item-img">
             </div>
@@ -358,7 +357,7 @@
               <h4 class="h4-favorites-box-author">By Clive Irving</h4>
               <p class="favorites-box-text">A timely and revelatory new biography of Queen Elizabeth (and her family)
                 exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login" data-btn="4">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/winter-book4.jpg" alt="winter-book4" class="favorites-box-item-img">
             </div>
@@ -374,7 +373,7 @@
               <h4 class="h4-favorites-box-author">By Stephen King</h4>
               <p class="favorites-box-text">Powerful novel that takes you back to a nostalgic time, exploring both the
                 beauty and danger and loss of innocence that is youth.</p>
-              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login" data-btn="5">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/spring-book1.jpg" alt="winter-book1" class="favorites-box-item-img">
             </div>
@@ -386,7 +385,7 @@
               <h4 class="h4-favorites-box-author">By Toni Jenson</h4>
               <p class="favorites-box-text">This memoir about the author's relationship with gun violence feels both
                 expansive and intimate, resulting in a lyrical indictment of the way things are.</p>
-              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login" data-btn="6">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/spring-book2.jpg" alt="winter-book2" class="favorites-box-item-img">
             </div>
@@ -399,7 +398,7 @@
               <p class="favorites-box-text">A sardonic view of Silicon Valley culture, a meditation on race, and a
                 journal
                 of displacement and belonging, all in one form-defying package of spare prose.</p>
-              <button class="btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class="btn-buy" type="button" data-path="form-login" data-btn="7">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/spring-book3.jpg" alt="winter-book3" class="favorites-box-item-img">
             </div>
@@ -413,7 +412,7 @@
                 the
                 promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate.
                 For fans of Isabel Allende and Julia Alvarez.</p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="8">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/spring-book4.jpg" alt="winter-book4" class="favorites-box-item-img">
             </div>
@@ -422,7 +421,7 @@
 
         <ul id="summer-id" class="favorites-box summer hidden" data-target="summer">
           <li class="favorites-box-card">
-            <div class="favorites-box-item" data-book="Dominicana" data-author="Angie Cruz">
+            <div class="favorites-box-item" data-book="Dominicana" data-author="Pablo Fajardo & ​​Sophie Tardy-Joubert">
               <h3 class="h3-favorites-box">Staff Picks</h3>
               <h4 class="h4-favorites-box-title">Crude: A Memoir</h4>
               <h4 class="h4-favorites-box-author">By Pablo Fajardo & ​​Sophie Tardy-Joubert</h4>
@@ -430,7 +429,7 @@
                 a
                 group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields
                 did to the Amazon and her people</p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="9">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/summer-book1.jpg" alt="winter-book1" class="favorites-box-item-img">
             </div>
@@ -443,7 +442,7 @@
               <p class="favorites-box-text">Chouinard—climber, businessman, environmentalist—shares tales of courage and
                 persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go
                 Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="10">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/summer-book2.jpg" alt="winter-book2" class="favorites-box-item-img">
             </div>
@@ -456,7 +455,7 @@
               <p class="favorites-box-text">This collection of bold and scathingly beautiful feminist poems imagines
                 what
                 comes after our current age of environmental destruction, racism, sexism, and divisive politics.</p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="11">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/summer-book3.jpg" alt="winter-book3" class="favorites-box-item-img">
             </div>
@@ -469,7 +468,7 @@
               <p class="favorites-box-text">An epic saga of seven generations of one family encompasses the tumultuous
                 history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of
                 villains and dreamers, queens and revolutionaries, lepers and healers.</p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="12">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/summer-book4.jpg" alt="winter-book4" class="favorites-box-item-img">
             </div>
@@ -485,7 +484,7 @@
                 concepts of conversation and the casual - both what we say to each other and what we don't, examining
                 the
                 possibilities around how we construct and communicate identity. </p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="13">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/autumn-book1.jpg" alt="winter-book1" class="favorites-box-item-img">
             </div>
@@ -498,7 +497,7 @@
               <p class="favorites-box-text">The harrowing story of an ordinary American and a principled Naval officer
                 who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a
                 million refugees from the Armenian Genocide</p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="14">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/autumn-book2.jpg" alt="winter-book2" class="favorites-box-item-img">
             </div>
@@ -511,7 +510,7 @@
               <p class="favorites-box-text">With the fall rolling around, one can't help but think of baseball's
                 postseason coming up! And what better way to prepare for it than reading the biography of one of the
                 game's all-time greatest performers, the Man of Steal, Rickey Henderson?</p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="15">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/autumn-book3.jpg" alt="winter-book3" class="favorites-box-item-img">
             </div>
@@ -524,7 +523,7 @@
               <p class="favorites-box-text">Exes Tegan and Sara find themselves chained together by hairballs of
                 codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.
               </p>
-              <button class=" btn-buy" type="button" data-path="form-login">Buy</button>
+              <button class=" btn-buy" type="button" data-path="form-login" data-btn="16">Buy</button>
               <!-- <button class="btn-own btn-buy-hidden" type="button" data-target="buy-book" disabled>Own</button> -->
               <img src="./img/favorites/autumn-book4.jpg" alt="winter-book4" class="favorites-box-item-img">
             </div>
@@ -650,11 +649,11 @@
             <div class="check-the-card-form-inner-block">
               <h3 class="h3-check-the-card-form">Brooklyn Public Library</h3>
               <input class="check-the-card-form-input check-the-card-form-input-reader-name" type="text"
-                placeholder="Reader's name" pattern="^[a-zA-Z0-9\-\s]+$"
-                title="please enter only letters, numbers and -" required>
+                placeholder="Reader's name" autocomplete="off" pattern="^[a-zA-Z0-9\-\s]+$"
+                title="please enter only letters, numbers and">
               <input class="check-the-card-form-input check-the-card-form-input-card-number" type="text"
-                placeholder="Card number" pattern="^[a-zA-Z0-9\-\s]+$" title="please enter only letters, numbers and -"
-                required>
+                placeholder="Card number" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9a-z]/gi, '').replace(/(\..*?)\..*/g, '$1');" title="Please, enter only letters, numbers"
+                >
             </div>
             <div class="check-the-card-info-block">
               <!-- <button class="btn-check-the-card">Check the card</button> -->
