@@ -1,29 +1,6 @@
-// const btns = document.querySelectorAll('.btn');
-// const modalOverlay = document.querySelector('.modal-overlay');
-// const modals = document.querySelectorAll('.modal');
+// const userDataJson = localStorage.getItem('user');
+const userData = JSON.parse(localStorage.getItem('user'));
 
-// btns.forEach((el) => {
-//   el.addEventListener('click', (e) => {
-//     let path = e.currentTarget.getAttribute('data-path');
-//     modals.forEach((el) => {
-//       el.classList.remove('modal--visible');
-//     });
-
-//     document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
-//     modalOverlay.classList.add('modal-overlay--visible');
-//   })
-
-// })
-
-// modalOverlay.addEventListener('click', (e) => {
-//   console.log(e.target);
-//   if (e.target == modalOverlay) {
-//     modalOverlay.classList.remove('modal-overlay--visible');
-//     modals.forEach((el) => {
-//       el.classList.remove('modal--visible');
-//     });
-//   }
-// });
 
 const profileIconButton = document.querySelector('.profile-svg-btn');
 const profileIconHiddenButton = document.querySelector('.profile-svg-hidden-btn');
@@ -38,7 +15,7 @@ const closeBtn = document.querySelectorAll('.close-btn');
 profileIconButton.addEventListener('click', () => {
   document.querySelector('.modal--1').classList.toggle('modal--visible');
   // modalOverlay.style.background = 'none';
-  modalOverlay.classList.toggle('modal-overlay--visible');
+  modalOverlay.classList.add('modal-overlay--visible');
 });
 
 profileIconHiddenButton.addEventListener('click', () => {
@@ -96,6 +73,8 @@ const registerSurname = document.querySelector('.register-form-input-surname');
 const registerEmail = document.querySelector('.register-form-input-email');
 const registerPassword = document.querySelector('.register-form-input-password');
 
+const RegisterFormData = {};
+
 registerNewUser.addEventListener('click', () => {
   if (registerFirstName.value.length > 0 && registerSurname.value.length > 0 && registerEmail.value.length > 0 && registerPassword.value.length >= 8) {
 
@@ -114,6 +93,11 @@ registerNewUser.addEventListener('click', () => {
     modals.forEach((el) => {
       el.classList.remove('modal--visible');
     });
+
+    RegisterFormData['books'] = [];
+    RegisterFormData['buttons'] = [];
+
+    localStorage.setItem('user', JSON.stringify(RegisterFormData));
     event.preventDefault();
     location.reload();
   }
@@ -207,6 +191,41 @@ if (localStorage.getItem('active') == 'true') {
   visitsCount.textContent = localStorage.getItem('visits');
   booksCountText.textContent = localStorage.getItem('booksCount');
   cardNumberField.textContent = localStorage.getItem('cardNumber');
+
+  const listRentedBooks = document.querySelector('.my-profile-list-books');
+  const author = [];
+  const bookName = [];
+
+  userData['books'].forEach((el) => {
+    for (let i = 0; i < el.length; i++) {
+      i % 2 != 0 ? bookName.push(el[i]) : author.push(el[i]);
+    }
+  })
+
+  if (bookName.length < 1 && author.length < 1) {
+
+  } else {
+    for (let i = 0; i < bookName.length; i++) {
+      let li = document.createElement('li');
+      let span = document.createElement('span');
+
+      li.textContent = bookName[i] + ', ' + author[i];
+      li.classList.add('my-profile-list-books-item');
+
+      listRentedBooks.prepend(li);
+    }
+  }
+
+    document.querySelectorAll('.btn-buy').forEach((el) => {
+      userData['buttons'].forEach((element) => {
+        if (el.dataset.btn == element) {
+          el.innerHTML = 'Own';
+          el.setAttribute = 'disabled';
+          el.classList.add('btn-own');
+          el.classList.remove('btn-buy');
+        }
+      })
+    })
 }
 
 // Вход в учетную запись
@@ -254,15 +273,110 @@ copy.addEventListener('click', () => {
 const buyLibraryCardFieldCardNumber = document.querySelector('#bank-card-number');
 const expirationCodeMonth = document.querySelector('#expiration-code-month');
 const expirationCodeYear = document.querySelector('#expiration-code-year');
+const cvc = document.querySelector('#cvc');
+const cardHolderName = document.querySelector('#cardholder-name');
+const postalCode = document.querySelector('#postal-code');
+const city = document.querySelector('#city-name');
 
-buyLibraryCardFieldCardNumber.addEventListener('input', function (event) {
-  const input = event.target;
-  if (input.value.length < 16) {
-    input.setCustomValidity('16');
+const buyCardButton = document.querySelector('.buy-card-btn')
+
+buyLibraryCardFieldCardNumber.addEventListener('input', function () {
+  if (buyLibraryCardFieldCardNumber.value.length === 16
+    && expirationCodeMonth.value.length === 2
+    && expirationCodeYear.value.length === 2
+    && cvc.value.length === 3
+    && cardHolderName.value.length > 0
+    && postalCode.value.length > 0
+    && city.value.length > 0) {
+    buyCardButton.classList.remove('buy-card-btn-disabled');
   } else {
-    input.setCustomValidity('');
+    buyCardButton.classList.add('buy-card-btn-disabled');
   }
-})
+});
+
+expirationCodeMonth.addEventListener('input', () => {
+  if (buyLibraryCardFieldCardNumber.value.length === 16
+    && expirationCodeMonth.value.length === 2
+    && expirationCodeYear.value.length === 2
+    && cvc.value.length === 3
+    && cardHolderName.value.length > 0
+    && postalCode.value.length > 0
+    && city.value.length > 0) {
+    buyCardButton.classList.remove('buy-card-btn-disabled');
+  } else {
+    buyCardButton.classList.add('buy-card-btn-disabled');
+  }
+});
+
+expirationCodeYear.addEventListener('input', () => {
+  if (buyLibraryCardFieldCardNumber.value.length === 16
+    && expirationCodeMonth.value.length === 2
+    && expirationCodeYear.value.length === 2
+    && cvc.value.length === 3
+    && cardHolderName.value.length > 0
+    && postalCode.value.length > 0
+    && city.value.length > 0) {
+    buyCardButton.classList.remove('buy-card-btn-disabled');
+  } else {
+    buyCardButton.classList.add('buy-card-btn-disabled');
+  }
+});
+
+cvc.addEventListener('input', () => {
+  if (buyLibraryCardFieldCardNumber.value.length === 16
+    && expirationCodeMonth.value.length === 2
+    && expirationCodeYear.value.length === 2
+    && cvc.value.length === 3
+    && cardHolderName.value.length > 0
+    && postalCode.value.length > 0
+    && city.value.length > 0) {
+    buyCardButton.classList.remove('buy-card-btn-disabled');
+  } else {
+    buyCardButton.classList.add('buy-card-btn-disabled');
+  }
+});
+
+cardHolderName.addEventListener('input', () => {
+  if (buyLibraryCardFieldCardNumber.value.length === 16
+    && expirationCodeMonth.value.length === 2
+    && expirationCodeYear.value.length === 2
+    && cvc.value.length === 3
+    && cardHolderName.value.length > 0
+    && postalCode.value.length > 0
+    && city.value.length > 0) {
+    buyCardButton.classList.remove('buy-card-btn-disabled');
+  } else {
+    buyCardButton.classList.add('buy-card-btn-disabled');
+  }
+});
+
+postalCode.addEventListener('input', () => {
+  if (buyLibraryCardFieldCardNumber.value.length === 16
+    && expirationCodeMonth.value.length === 2
+    && expirationCodeYear.value.length === 2
+    && cvc.value.length === 3
+    && cardHolderName.value.length > 0
+    && postalCode.value.length > 0
+    && city.value.length > 0) {
+    buyCardButton.classList.remove('buy-card-btn-disabled');
+  } else {
+    buyCardButton.classList.add('buy-card-btn-disabled');
+  }
+});
+
+city.addEventListener('input', () => {
+  if (buyLibraryCardFieldCardNumber.value.length === 16
+    && expirationCodeMonth.value.length === 2
+    && expirationCodeYear.value.length === 2
+    && cvc.value.length === 3
+    && cardHolderName.value.length > 0
+    && postalCode.value.length > 0
+    && city.value.length > 0) {
+    buyCardButton.classList.remove('buy-card-btn-disabled');
+  } else {
+    buyCardButton.classList.add('buy-card-btn-disabled');
+  }
+});
 
 document.querySelector('.buy-card-btn').addEventListener('click', () => {
   if (buyLibraryCardFieldCardNumber.value.length === 16 && typeof (+buyLibraryCardFieldCardNumber.value) == 'number'
@@ -278,7 +392,7 @@ document.querySelector('.buy-card-btn').addEventListener('click', () => {
     event.preventDefault();
     location.reload();
   } else {
-    window.alert('Please, fill all fields');
+    // window.alert('Please, fill all fields');
   }
 
 });
@@ -303,40 +417,52 @@ if (localStorage.getItem('active') == 'false' || localStorage.getItem('buyCard')
   });
 } else {
   document.querySelectorAll('.btn-buy').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      // e.stopPropagation();
-      // el.classList.add('btn-buy-hidden');
-      localStorage.setItem('booksCount', +localStorage.getItem('booksCount') + 1);
-      el.innerHTML = 'Own';
-      el.setAttribute = 'disabled';
-      el.classList.add('btn-own');
-      el.classList.remove('btn-buy');
+    el.addEventListener('click', (event) => {
+      if (!userData['buttons'].includes(event.target.dataset.btn)) {
+        localStorage.setItem('booksCount', +localStorage.getItem('booksCount') + 1);
+        el.innerHTML = 'Own';
+        el.setAttribute = 'disabled';
+        el.classList.add('btn-own');
+        el.classList.remove('btn-buy');
+        userData['buttons'].push(event.target.dataset.btn);
+        localStorage.setItem('user', JSON.stringify(userData));
+        // event.preventDefault();
+        // location.reload();
+      }
 
-      const parent = event.target.closest('.favorites-box-item');
-      const author = parent.dataset.author;
-      const bookName = parent.dataset.book;
+      const authorInArray = [];
+      const bookInArray = [];
 
-      let li = document.createElement('li');
-      let span = document.createElement('span');
+      for (let arr of userData['books']) {
+        arr.forEach((element, index) => {
+          index % 2 === 0 ? authorInArray.push(element) : bookInArray.push(element);
+        })
+      }
 
-      li.textContent = bookName + ', ' + author;
-      li.classList.add('my-profile-list-books-item');
+      const author = event.target.closest('.favorites-box-item').dataset.author;
+      const bookName = event.target.closest('.favorites-box-item').dataset.book;
 
-      document.querySelector('.my-profile-list-books').prepend(li);
-
+      if (!authorInArray.includes(author) && !bookInArray.includes(bookName)) {
+        userData['books'].push([author, bookName]);
+        localStorage.setItem('user', JSON.stringify(userData));
+      }
       event.preventDefault();
-      // location.reload();
+      location.reload();
     });
-    // localStorage.setItem('booksCount', +localStorage.getItem('bookCount') + 1);
-    //   event.preventDefault();
-    // location.reload();
-  });
+   });
 };
 
 // Проверка Library card
 
 buttonCheckTheCard.addEventListener('click', () => {
-  if (readerName.value === localStorage.getItem('userName') && readerCardNumber.value === localStorage.getItem('cardNumber')) {
+  event.preventDefault();
+  // if (localStorage.getItem(userEmail) === '') {
+  //   buttonCheckTheCard.disabled = true;
+  // }
+
+  if ((readerName.value.trim().toLowerCase() === localStorage.getItem('userName').toLowerCase() && readerCardNumber.value === localStorage.getItem('cardNumber'))
+    || (readerName.value.trim().toLowerCase() === localStorage.getItem('userSurname').toLowerCase() && readerCardNumber.value === localStorage.getItem('cardNumber'))
+    || (readerName.value.replace(/\s+/g, ' ').trim().toLowerCase() === localStorage.getItem('userName').toLowerCase() + " " + localStorage.getItem('userSurname').toLowerCase() && readerCardNumber.value === localStorage.getItem('cardNumber'))) {
     readerName.value = localStorage.getItem('userName') + ' ' + localStorage.getItem('userSurname');
     readerName.disabled = true;
     readerCardNumber.value = localStorage.getItem('cardNumber');
@@ -376,8 +502,6 @@ buttonCheckTheCard.addEventListener('click', () => {
       readerCardNumber.disabled = false;
       document.querySelector('.check-the-card-list').style.display = 'none';
       buttonCheckTheCard.style.display = 'block';
-      event.preventDefault();
-      // location.reload();
     }, 10000);
   } else {
     readerName.value = '';
