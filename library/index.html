@@ -66,7 +66,7 @@
                 <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
               </svg>
             </button>
-            <form action="#" class="login-form">
+            <form class="login-form">
               <h4 class="h4-login-form">E-mail or readers card</h4>
               <input type="text" class="login-form-input login-form-input-email" autocomplete="off" required>
               <h4 class="h4-login-form">Password</h4>
@@ -89,7 +89,7 @@
               </svg>
             </button>
             <!-- </div> -->
-            <form action="#" class="register-form">
+            <form class="register-form">
               <h4 class="h4-register-form">First name</h4>
               <input type="text" class="register-form-input register-form-input-firstname" data-register-input="firstName" autocomplete="off" pattern="^[a-zA-Z]+$" title="please enter only letters" required>
               <h4 class="h4-register-form">Last name</h4>
@@ -180,31 +180,31 @@
             <h3 class="h3-buy-card">BUY A LIBRARY CARD</h3>
             <div class="buy-card-table">
               <div class="buy-card-left-column">
-                <form action="" class="buy-card-form">
-                  <label for="bank-card-number" class="buy-card-label bank-card-number">
+                <form class="buy-card-form">
+                  <label for="bank-card-number" class="buy-card-label">
                     <span class="p-buy-card-left-column">Bank card number</span>
                     <input class="buy-card-input" type="text" id="bank-card-number" autocomplete="off" minlength="16" maxlength="16" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Enter 16 digits" required>
                   </label>
-                  <label for="expiration-code" class="buy-card-label bank-card-number">
+                  <label class="buy-card-label">
                     <span class="p-buy-card-left-column">Expiration code</span>
                     <div class="expiration-code">
                       <input class="buy-card-input expiration-code-input" type="text" id="expiration-code-month" autocomplete="off" minlength="2" maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Enter 2 digits" required>
                       <input class="buy-card-input expiration-code-input" type="text" id="expiration-code-year" autocomplete="off" minlength="2" maxlength="2" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Enter 2 digits" required>
                     </div>
                   </label>
-                  <label for="cvc" class="buy-card-label bank-card-number">
+                  <label for="cvc" class="buy-card-label">
                     <span class="p-buy-card-left-column">CVC</span>
                     <input class="buy-card-input cvc-input" type="text" id="cvc" autocomplete="off" minlength="3" maxlength="3" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Enter 3 digits" required>
                   </label>
-                  <label for="cardholder-name" class="buy-card-label bank-card-number">
+                  <label for="cardholder-name" class="buy-card-label">
                     <span class="p-buy-card-left-column">Cardholder name</span>
                     <input class="buy-card-input cardholder-name-input" type="text" id="cardholder-name" autocomplete="off" oninput="this.value = this.value.replace(/[^a-zа-я]/gi, '').replace(/(\..*?)\..*/g, '$1');" title="Please, enter only letters" required>
                   </label>
-                  <label for="postal-code" class="buy-card-label bank-card-number">
+                  <label for="postal-code" class="buy-card-label">
                     <span class="p-buy-card-left-column">Postal code</span>
                     <input class="buy-card-input cardholder-name-input" type="text" id="postal-code" autocomplete="off" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Plese, enter only numbers" required>
                   </label>
-                  <label for="city-name" class="buy-card-label bank-card-number">
+                  <label for="city-name" class="buy-card-label">
                     <span class="p-buy-card-left-column">City / Town</span>
                     <input class="buy-card-input city-name-input" type="text" id="city-name" autocomplete="off" oninput="this.value = this.value.replace(/[^a-zа-я]/gi, '').replace(/(\..*?)\..*/g, '$1');" title="Please, enter only letters" required>
                   </label>
