@@ -238,8 +238,8 @@ const loginEmail = document.querySelector('.login-form-input-email');
 const loginPassword = document.querySelector('.login-form-input-password');
 
 loginUser.addEventListener('click', (event) => {
-  if ((loginEmail.value.length > 0 && loginEmail.value == userEmail && loginPassword.value == userPassword)
-    || (loginEmail.value.length > 0 && loginEmail.value == cardNumber && loginPassword.value == userPassword)) {
+  if ((loginEmail.value.length > 0 && loginEmail.value == userEmail && loginPassword.value > 7 && loginPassword.value == userPassword)
+    || (loginEmail.value.length > 0 && loginEmail.value == cardNumber && loginPassword.value > 7 && loginPassword.value == userPassword)) {
     localStorage.setItem('active', true);
     localStorage.setItem('visits', +localStorage.getItem('visits') + 1);
     modalOverlay.classList.remove('modal-overlay--visible');
@@ -383,7 +383,7 @@ city.addEventListener('input', () => {
   }
 });
 
-document.querySelector('.buy-card-btn').addEventListener('click', () => {
+document.querySelector('.buy-card-btn').addEventListener('click', (event) => {
   if (buyLibraryCardFieldCardNumber.value.length === 16 && typeof (+buyLibraryCardFieldCardNumber.value) == 'number'
     && expirationCodeMonth.value.length === 2
     && expirationCodeYear.value.length === 2) {
@@ -391,6 +391,7 @@ document.querySelector('.buy-card-btn').addEventListener('click', () => {
     localStorage.setItem('booksCount', +localStorage.getItem('booksCount') + 0);
     modalOverlay.classList.remove('modal-overlay--visible');
     modalOverlay.style.background = 'none';
+    document.body.style.overflow = '';
     modals.forEach((el) => {
       el.classList.remove('modal--visible');
     });
