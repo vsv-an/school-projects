@@ -322,7 +322,7 @@ body._lock {
   }
 } */
 
-@media (max-width: 778px) {
+@media (max-width: 1250px) {
   .form-favorites-season {
     position: -webkit-sticky;
     position: sticky;

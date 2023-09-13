@@ -190,7 +190,7 @@ svg:hover path {
   align-items: center;
   width: 80px;
   height: 115px;
-  gap: 5px;
+  gap: 7px;
   background-color: #fff;
   z-index: 1;
 }
@@ -219,7 +219,7 @@ svg:hover path {
 .h4-modal {
   position: relative;
   padding-top: 5px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   color: #000;
   font-family: Inter;
   line-height: 20px;
@@ -234,7 +234,7 @@ svg:hover path {
   width: 40px;
   background: #BB945F;
   position: absolute;
-  bottom: 9px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -278,17 +278,17 @@ svg:hover path {
 }
 
 .login-card {
-  padding: 25px;
-  width: 252px;
-  height: 280px;
+  padding: 20px 25px;
+  width: 249px;
+  height: 262px;
   background-color: #fff;
 
 }
 
 .register-card {
-  padding: 25px;
-  /* width: 252px; */
-  height: 382px;
+  padding: 20px 25px;
+  width: 249px;
+  height: 381px;
   background-color: #fff;
 
 }
@@ -302,11 +302,22 @@ svg:hover path {
   margin-bottom: 10px;
 }
 
-.close-btn {
+.login-close-btn,
+.register-close-btn {
   cursor: pointer;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: none;
+}
+
+.my-profile-close-btn,
+.buy-card-close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 22px;
+  right: 22px;
   border: none;
   background: none;
 }
@@ -322,7 +333,7 @@ svg:hover path {
   /* 100% */
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .h4-login-form,
@@ -460,7 +471,7 @@ svg:hover path {
 }
 
 .h3-my-profile {
-  padding-top: 30px;
+  padding-top: 40px;
   margin-bottom: 40px;
   /* align-items: left; */
   color: #000;
@@ -527,7 +538,7 @@ svg:hover path {
 }
 
 .my-profile-list-books-item {
-  margin-left: 20px;
+  margin-left: 30px;
   margin-bottom: 10px;
   list-style: disc;
   color: #000;
@@ -542,9 +553,9 @@ svg:hover path {
 }
 
 .my-profile-list-books {
-  height: 90px;
+  height: 80px;
   width: 98%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   scrollbar-width: thin;
   overflow: hidden;
 }
@@ -630,7 +641,7 @@ svg:hover path {
 }
 
 .buy-card-left-column {
-  padding: 0 40px;
+  padding: 0 35px;
   /* position: relative; */
 }
 
@@ -667,7 +678,11 @@ svg:hover path {
 
 .expiration-code-input,
 .cvc-input {
-  width: 40px;
+  width: 45px;
+}
+
+.cvc-input {
+  margin-bottom: 10px;
 }
 
 .buy-card-form-btn {
@@ -705,7 +720,7 @@ svg:hover path {
 .buy-card-price {
   position: absolute;
   bottom: 40px;
-  left: 140px;
+  left: 135px;
   color: #0C0C0E;
   font-family: Inter;
   font-size: 20px;
