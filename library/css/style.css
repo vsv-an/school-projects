@@ -458,7 +458,7 @@ svg:hover path {
   font-weight: 400;
   line-height: 20px;
   text-transform: capitalize;
-  word-break: break-all;
+  /* word-break: break-all; */
 }
 
 .my-profile-right-column {
