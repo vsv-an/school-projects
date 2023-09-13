@@ -12,13 +12,15 @@ const hamburger = document.querySelector('.menu-toggle');
 
 const closeBtn = document.querySelectorAll('.close-btn');
 
+const listRentedBooks = document.querySelector('.my-profile-list-books');
+
 profileIconButton.addEventListener('click', () => {
   document.querySelector('.modal--1').classList.toggle('modal--visible');
   // modalOverlay.style.background = 'none';
   modalOverlay.classList.add('modal-overlay--visible');
 });
 
-profileIconHiddenButton.addEventListener('click', () => {
+profileIconHiddenButton.addEventListener('click', (event) => {
   document.querySelector('.modal--2').classList.toggle('modal--visible');
   // modalOverlay.style.background = 'none';
   modalOverlay.classList.toggle('modal-overlay--visible');
@@ -194,7 +196,7 @@ if (localStorage.getItem('active') == 'true') {
   booksCountText.textContent = localStorage.getItem('booksCount');
   cardNumberField.textContent = localStorage.getItem('cardNumber');
 
-  const listRentedBooks = document.querySelector('.my-profile-list-books');
+  // const listRentedBooks = document.querySelector('.my-profile-list-books');
   const author = [];
   const bookName = [];
 
@@ -218,16 +220,16 @@ if (localStorage.getItem('active') == 'true') {
     }
   }
 
-    document.querySelectorAll('.btn-buy').forEach((el) => {
-      userData['buttons'].forEach((element) => {
-        if (el.dataset.btn == element) {
-          el.innerHTML = 'Own';
-          el.setAttribute = 'disabled';
-          el.classList.add('btn-own');
-          el.classList.remove('btn-buy');
-        }
-      })
+  document.querySelectorAll('.btn-buy').forEach((el) => {
+    userData['buttons'].forEach((element) => {
+      if (el.dataset.btn == element) {
+        el.innerHTML = 'Own';
+        el.setAttribute = 'disabled';
+        el.classList.add('btn-own');
+        el.classList.remove('btn-buy');
+      }
     })
+  })
 }
 
 // Вход в учетную запись
@@ -250,7 +252,7 @@ loginUser.addEventListener('click', (event) => {
   } else {
     window.alert('User not found!');
   }
-  // location.reload();
+  location.reload();
 })
 
 
@@ -423,14 +425,14 @@ if (localStorage.getItem('active') == 'false' || localStorage.getItem('buyCard')
     el.addEventListener('click', (event) => {
       if (!userData['buttons'].includes(event.target.dataset.btn)) {
         localStorage.setItem('booksCount', +localStorage.getItem('booksCount') + 1);
+        booksCountText.textContent = +booksCountText.textContent + 1;
+        document.querySelector('.check-the-card-list-books-count').innerHTML = booksCountText.textContent;
         el.innerHTML = 'Own';
         el.setAttribute = 'disabled';
         el.classList.add('btn-own');
         el.classList.remove('btn-buy');
         userData['buttons'].push(event.target.dataset.btn);
         localStorage.setItem('user', JSON.stringify(userData));
-        // event.preventDefault();
-        // location.reload();
       }
 
       const authorInArray = [];
@@ -449,20 +451,22 @@ if (localStorage.getItem('active') == 'false' || localStorage.getItem('buyCard')
         userData['books'].push([author, bookName]);
         localStorage.setItem('user', JSON.stringify(userData));
       }
-      event.preventDefault();
-      location.reload();
+
+      let li = document.createElement('li');
+      let span = document.createElement('span');
+
+      li.textContent = bookName + ', ' + author;
+      li.classList.add('my-profile-list-books-item');
+
+      listRentedBooks.prepend(li);
     });
-   });
+  });
 };
 
 // Проверка Library card
 
-buttonCheckTheCard.addEventListener('click', () => {
+buttonCheckTheCard.addEventListener('click', (event) => {
   event.preventDefault();
-  // if (localStorage.getItem(userEmail) === '') {
-  //   buttonCheckTheCard.disabled = true;
-  // }
-
   if ((readerName.value.trim().toLowerCase() === localStorage.getItem('userName').toLowerCase() && readerCardNumber.value === localStorage.getItem('cardNumber'))
     || (readerName.value.trim().toLowerCase() === localStorage.getItem('userSurname').toLowerCase() && readerCardNumber.value === localStorage.getItem('cardNumber'))
     || (readerName.value.replace(/\s+/g, ' ').trim().toLowerCase() === localStorage.getItem('userName').toLowerCase() + " " + localStorage.getItem('userSurname').toLowerCase() && readerCardNumber.value === localStorage.getItem('cardNumber'))) {
