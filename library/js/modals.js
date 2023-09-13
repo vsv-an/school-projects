@@ -119,6 +119,7 @@ function getRandomNumber() {
 const activeStatus = localStorage.getItem('active');
 const userEmail = localStorage.getItem('userEmail');
 const userPassword = localStorage.getItem('userPassword');
+const cardNumber = localStorage.getItem('cardNumber');
 
 const myProfileUserName = document.querySelector('.my-profile-user-name');
 const myProfileInitials = document.querySelector('.my-profile-initials');
@@ -138,6 +139,7 @@ if (localStorage.getItem('active') == 'true') {
   document.querySelector('.initials').textContent = localStorage.getItem('userName').slice(0, 1).toUpperCase() + localStorage.getItem('userSurname').slice(0, 1).toLocaleUpperCase();
   document.querySelector('.initials').title = localStorage.getItem('userName') + ' ' + localStorage.getItem('userSurname');
   document.querySelector('.h4-modal--2').textContent = localStorage.getItem('cardNumber');
+  document.querySelector('.h3-library-card-left-column').innerHTML = 'Your Library card';
   document.querySelector('.h3-library-card-right-column').innerHTML = 'Visit your profile';
   document.querySelector('.p-library-card-box-right-column').innerHTML = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
 
@@ -233,8 +235,9 @@ const loginUser = document.querySelector('.login-form-btn-submit');
 const loginEmail = document.querySelector('.login-form-input-email');
 const loginPassword = document.querySelector('.login-form-input-password');
 
-loginUser.addEventListener('click', () => {
-  if (loginEmail.value.length > 0 && loginEmail.value == userEmail && loginPassword.value == userPassword) {
+loginUser.addEventListener('click', (event) => {
+  if ((loginEmail.value.length > 0 && loginEmail.value == userEmail && loginPassword.value == userPassword)
+    || (loginEmail.value.length > 0 && loginEmail.value == cardNumber && loginPassword.value == userPassword)) {
     localStorage.setItem('active', true);
     localStorage.setItem('visits', +localStorage.getItem('visits') + 1);
     modalOverlay.classList.remove('modal-overlay--visible');
