@@ -62,11 +62,11 @@ function loadNewTrack(index) {
   this.currentAudio = document.getElementById("current-audio");
   this.currentAudio.load();
   this.toggleAudio();
-  // this.updatesStylePlylist(this.indexAudio, index);
+  this.updatesStylePlylist(this.indexAudio, index);
   this.indexAudio = index;
 }
 
-var playListItems = document.querySelector('.playlist-track');
+var playListItems = document.querySelectorAll('.playlist-track');
 
 for (let i = 0; i < playListItems.length; i++) {
   playListItems[i].addEventListener('click', getClickedElement.bind(this));
@@ -75,7 +75,7 @@ for (let i = 0; i < playListItems.length; i++) {
 function getClickedElement(event) {
   for (let i = 0; i < playListItems.length; i++) {
     if (playListItems[i] == event.target) {
-      let clickedIndex = event.target.getAttribute('data-index');
+      var clickedIndex = event.target.getAttribute('data-index');
       if (clickedIndex == this.indexAudio) {
         this.toggleAudio();
       } else {
@@ -156,14 +156,47 @@ function getMinutes(t) {
   return min + ':' + sec;
 }
 
+function previous() {
+  if (this.indexAudio > 0) {
+    var oldIndex = this.indexAudio;
+    this.indexAudio--;
+    updatesStylePlylist(oldIndex, this.indexAudio);
+    this.loadNewTrack(this.indexAudio);
+  } else {
+    // this.indexAudio = listAudio.length;
+    // updatesStylePlylist(oldIndex, this.indexAudio);
+    // this.loadNewTrack(this.indexAudio);
+  }
+}
+
+function next() {
+  if (this.indexAudio < listAudio.length - 1) {
+    var oldIndex = this.indexAudio
+    this.indexAudio++;
+    updatesStylePlylist(oldIndex, this.indexAudio);
+    this.loadNewTrack(this.indexAudio);
+  } else {
+    // this.indexAudio = 0;
+    // updatesStylePlylist(oldIndex, this.indexAudio);
+    // this.loadNewTrack(this.indexAudio);
+  }
+}
+
+function updatesStylePlylist(oldIndex, newIndex) {
+  document.querySelector('#ptc-' + oldIndex).classList.remove('active-track');
+  this.pauseToPlay(oldIndex);
+  document.querySelector('#ptc-' + newIndex).classList.add('active-track');
+  this.playToPause(newIndex);
+}
+
 function playToPause(index) {
-  const element = document.querySelector('#p-img-' + index);
+  var element = document.querySelector('#p-img-' + index);
   element.classList.remove('fa-play');
   element.classList.add('fa-pause');
 }
 
 function pauseToPlay(index) {
-  const element = document.querySelector('#p-img-' + index);
+  var element = document.querySelector('#p-img-' + index);
   element.classList.remove('fa-pause');
   element.classList.add('fa-play');
 }
