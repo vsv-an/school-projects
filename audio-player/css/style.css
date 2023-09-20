@@ -30,7 +30,7 @@ body {
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: 0 0 15px #000;
-  background-color: gray;
+  background-color: rgb(92, 92, 92);;
   z-index: 2;
 }
 
@@ -78,7 +78,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 60px;
-  color: #ffc266;
+  color: #fff;
 }
 
 .btn-action {
@@ -86,7 +86,7 @@ body {
 }
 
 .fas {
-  color: #ffc266;
+  color: #fff;
   font-size: 20px;
 }
 
@@ -96,7 +96,7 @@ body {
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: 0 0 15px #000;
-  background-color: gray;
+  background-color: rgb(92, 92, 92);
 }
 
 .playlist {
@@ -105,7 +105,7 @@ body {
 
 .playlist-track {
   display: flex;
-  background-color: #464646;
+  /* background-color: #464646; */
   margin-bottom: 5px;
   border-radius: 5px;
   cursor: pointer;
@@ -123,21 +123,21 @@ body {
 .playlist-duration {
   padding-top: 7px;
   padding-bottom: 7px;
-  color: #e9cc95;
+  color: #fff;
   font-size: 14px;
   pointer-events: none;
 }
 
 .active-track {
   background: #4d4d4d;
-  color: #ffc266 !important;
+  color: #fff;
   font-weight: bold;
 }
 
 .active-track > .playlist-info-track,
 .active-track >.playlist-duration,
 .active-track > .playlist-btn-play{
-  color: #ffc266 !important;
+  /* color: #ffc266 !important; */
 }
 
 .playlist-btn-play {

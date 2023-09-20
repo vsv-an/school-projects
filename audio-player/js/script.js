@@ -30,22 +30,22 @@ function createTrackItem(index, name, duration) {
 
 var listAudio = [
   {
-    name: "The Animals - House Of The Rising Sun",
-    file: "./songs/The-Animals-House_Of_The_Rising_Sun.mp3",
-    duration: "04:28",
-    img: "url('./img/the-animals.jpg')",
+    name: "Gipsy Flame - For Your Eyes",
+    file: "./songs/Gypsy_Flame-For_Your_Eyes.mp3",
+    duration: "04:54",
+    img: "url('./img/img-1.jpg')",
   },
   {
-    name: "Bee Gees - Stayin' Alive",
-    file: "./songs/Bee_Gees-Stayin-Alive.mp3",
-    duration: "04:49",
-    img: "url(./img/bee-gees.jpg)",
+    name: "Rubia - Mi Amor",
+    file: "./songs/Rubia-Mi_Amor.mp3",
+    duration: "05:16",
+    img: "url(./img/img-2.jpg)",
   },
   {
     name: "Gipsy Kings - Moorea",
     file: "./songs/Gipsy_Kings-Moorea.mp3",
     duration: "04:02",
-    img: "url(./img/gipsy-kings.jpg)",
+    img: "url(./img/img-3.jpg)",
   }
 ]
 
@@ -56,9 +56,11 @@ for (let i = 0; i < listAudio.length; i++) {
 var indexAudio = 0;
 
 function loadNewTrack(index) {
-  const player = document.querySelector('#source-audio');
+  var player = document.querySelector('#source-audio');
   player.src = listAudio[index].file;
   document.querySelector('.title').innerHTML = listAudio[index].name;
+  document.querySelector('.thumbnail').style.backgroundImage = listAudio[index].img;
+  document.querySelector('body').style.backgroundImage = listAudio[index].img;
   this.currentAudio = document.getElementById("current-audio");
   this.currentAudio.load();
   this.toggleAudio();
@@ -156,30 +158,34 @@ function getMinutes(t) {
   return min + ':' + sec;
 }
 
+var progressbar = document.querySelector('#progress-bar');
+progressbar.addEventListener('click', seek.bind(this));
+
+function seek(event) {
+  var percent = event.offsetX / progressbar.offsetWidth;
+  this.currentAudio.currentTime = percent * this.currentAudio.duration;
+  barProgress.style.width = percent * 100 + '%';
+}
+
 function previous() {
-  if (this.indexAudio > 0) {
-    var oldIndex = this.indexAudio;
-    this.indexAudio--;
-    updatesStylePlylist(oldIndex, this.indexAudio);
-    this.loadNewTrack(this.indexAudio);
-  } else {
-    // this.indexAudio = listAudio.length;
-    // updatesStylePlylist(oldIndex, this.indexAudio);
-    // this.loadNewTrack(this.indexAudio);
+  let oldIndex = this.indexAudio;
+  this.indexAudio--;
+  if (this.indexAudio < 0) {
+    this.indexAudio = listAudio.length - 1;
+    oldIndex = 0;
   }
+  updatesStylePlylist(oldIndex, this.indexAudio);
+  this.loadNewTrack(this.indexAudio);
 }
 
 function next() {
-  if (this.indexAudio < listAudio.length - 1) {
-    var oldIndex = this.indexAudio
-    this.indexAudio++;
-    updatesStylePlylist(oldIndex, this.indexAudio);
-    this.loadNewTrack(this.indexAudio);
-  } else {
-    // this.indexAudio = 0;
-    // updatesStylePlylist(oldIndex, this.indexAudio);
-    // this.loadNewTrack(this.indexAudio);
+  let oldIndex = this.indexAudio;
+  this.indexAudio++;
+  if (this.indexAudio > listAudio.length - 1) {
+    indexAudio = 0;
   }
+  updatesStylePlylist(oldIndex, this.indexAudio);
+  this.loadNewTrack(this.indexAudio);
 }
 
 function updatesStylePlylist(oldIndex, newIndex) {
