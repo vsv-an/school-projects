@@ -12,11 +12,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-image: url('../img/bee-gees.jpg'); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   backdrop-filter: blur(10px);
+  transition: background-image 1s ease-in;
 }
 
 .player-container {
@@ -35,13 +35,12 @@ body {
 }
 
 .thumbnail {
-  /* object-fit: fill; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 80%;
   width: 100%;
-  transition: 3s;
+  transition: 1s ease-in;
 }
 
 .player-box {
@@ -50,7 +49,7 @@ body {
 }
 
 .title {
-  width: 210px;
+  width: 90%;
   text-align: center;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -92,6 +91,11 @@ body {
   width: 20px;
 }
 
+.btn-action:active,
+.btn-mute:active {
+  transform: scale(1.1);
+}
+
 .fas {
   color: #fff;
   font-size: 20px;
@@ -112,8 +116,6 @@ body {
 
 .playlist-track {
   display: flex;
-  /* background-color: #464646; */
-  margin-bottom: 5px;
   border-radius: 5px;
   cursor: pointer;
 }

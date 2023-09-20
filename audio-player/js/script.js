@@ -123,9 +123,11 @@ function pauseAudio() {
 }
 
 function stopPlay() {
+  document.querySelector('#icon-play').style.display = 'block';
+  document.querySelector('#icon-pause').style.display = 'none';
+  this.pauseToPlay(this.indexAudio);
   this.currentAudio.currentTime = 0;
   this.currentAudio.pause();
-
 }
 
 var timer = document.getElementsByClassName('timer')[0];
