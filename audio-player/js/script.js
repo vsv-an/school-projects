@@ -1,34 +1,34 @@
 function createTrackItem(index, name, duration) {
-  var trackItem = document.createElement('div');
+  const trackItem = document.createElement('div');
   trackItem.setAttribute("class", "playlist-track");
   trackItem.setAttribute("id", "ptc-" + index);
   trackItem.setAttribute("data-index", index);
   document.querySelector(".playlist").appendChild(trackItem);
 
-  var playBtnItem = document.createElement('div');
+  const playBtnItem = document.createElement('div');
   playBtnItem.setAttribute('class', 'playlist-btn-play');
   playBtnItem.setAttribute('id', 'pbp-' + index);
   document.querySelector('#ptc-' + index).appendChild(playBtnItem);
 
-  var btnImg = document.createElement('i');
+  const btnImg = document.createElement('i');
   btnImg.setAttribute('class', 'fas fa-play');
   btnImg.setAttribute('height', '40');
   btnImg.setAttribute('width', '40');
   btnImg.setAttribute('id', 'p-img-' + index);
   document.querySelector('#pbp-' + index).appendChild(btnImg);
 
-  var trackInfoItem = document.createElement('div');
+  const trackInfoItem = document.createElement('div');
   trackInfoItem.setAttribute('class', 'playlist-info-track');
   trackInfoItem.innerHTML = name;
   document.querySelector('#ptc-' + index).appendChild(trackInfoItem);
 
-  var trackDurationItem = document.createElement('div');
+  const trackDurationItem = document.createElement('div');
   trackDurationItem.setAttribute('class', 'playlist-duration');
   trackDurationItem.innerHTML = duration;
   document.querySelector('#ptc-' + index).appendChild(trackDurationItem);
 }
 
-var listAudio = [
+const listAudio = [
   {
     name: "Gipsy Flame - For Your Eyes",
     file: "./songs/Gypsy_Flame-For_Your_Eyes.mp3",
@@ -53,10 +53,11 @@ for (let i = 0; i < listAudio.length; i++) {
   createTrackItem(i, listAudio[i].name, listAudio[i].duration);
 }
 
+const player = document.querySelector('#source-audio');
+var currentAudio = document.getElementById('current-audio');
 var indexAudio = 0;
 
 function loadNewTrack(index) {
-  var player = document.querySelector('#source-audio');
   player.src = listAudio[index].file;
   document.querySelector('.title').innerHTML = listAudio[index].name;
   document.querySelector('.thumbnail').style.backgroundImage = listAudio[index].img;
@@ -68,7 +69,7 @@ function loadNewTrack(index) {
   this.indexAudio = index;
 }
 
-var playListItems = document.querySelectorAll('.playlist-track');
+const playListItems = document.querySelectorAll('.playlist-track');
 
 for (let i = 0; i < playListItems.length; i++) {
   playListItems[i].addEventListener('click', getClickedElement.bind(this));
@@ -77,7 +78,7 @@ for (let i = 0; i < playListItems.length; i++) {
 function getClickedElement(event) {
   for (let i = 0; i < playListItems.length; i++) {
     if (playListItems[i] == event.target) {
-      var clickedIndex = event.target.getAttribute('data-index');
+      let clickedIndex = event.target.getAttribute('data-index');
       if (clickedIndex == this.indexAudio) {
         this.toggleAudio();
       } else {
@@ -92,15 +93,11 @@ document.querySelector('.title').innerHTML = listAudio[indexAudio].name;
 document.querySelector('.thumbnail').style.backgroundImage = listAudio[indexAudio].img;
 document.querySelector('body').style.backgroundImage = listAudio[indexAudio].img;
 
-var currentAudio = document.getElementById('current-audio');
-
 currentAudio.load();
 
 currentAudio.onloadedmetadata = function () {
   document.getElementsByClassName('duration')[0].innerHTML = this.getMinutes(this.currentAudio.duration);
 }.bind(this);
-
-var interval1;
 
 function toggleAudio() {
   if (this.currentAudio.paused) {
@@ -117,11 +114,6 @@ function toggleAudio() {
   }
 }
 
-function pauseAudio() {
-  this.currentAudio.pause();
-  clearInterval(interval1);
-}
-
 function stopPlay() {
   document.querySelector('#icon-play').style.display = 'block';
   document.querySelector('#icon-pause').style.display = 'none';
@@ -130,9 +122,8 @@ function stopPlay() {
   this.currentAudio.pause();
 }
 
-var timer = document.getElementsByClassName('timer')[0];
-var barProgress = document.getElementById('song-progress-bar');
-var width = 0;
+const timer = document.getElementsByClassName('timer')[0];
+const barProgress = document.getElementById('song-progress-bar');
 
 function onTimeUpdate() {
   let t = this.currentAudio.currentTime;
@@ -166,11 +157,11 @@ function getMinutes(t) {
   return min + ':' + sec;
 }
 
-var progressbar = document.querySelector('#progress-bar');
+const progressbar = document.querySelector('#progress-bar');
 progressbar.addEventListener('click', seek.bind(this));
 
 function seek(event) {
-  var percent = event.offsetX / progressbar.offsetWidth;
+  let percent = event.offsetX / progressbar.offsetWidth;
   this.currentAudio.currentTime = percent * this.currentAudio.duration;
   barProgress.style.width = percent * 100 + '%';
 }
@@ -204,21 +195,21 @@ function updatesStylePlylist(oldIndex, newIndex) {
 }
 
 function playToPause(index) {
-  var element = document.querySelector('#p-img-' + index);
+  let element = document.querySelector('#p-img-' + index);
   element.classList.remove('fa-play');
   element.classList.add('fa-pause');
 }
 
 function pauseToPlay(index) {
-  var element = document.querySelector('#p-img-' + index);
+ let element = document.querySelector('#p-img-' + index);
   element.classList.remove('fa-pause');
   element.classList.add('fa-play');
 }
 
 function toggleMute() {
-  var btnMute = document.querySelector('toggle-mute');
-  var volumeUp = document.querySelector('#icon-volume-up');
-  var volumeMute = document.querySelector('#icon-volume-mute');
+  let btnMute = document.querySelector('toggle-mute');
+  let volumeUp = document.querySelector('#icon-volume-up');
+  let volumeMute = document.querySelector('#icon-volume-mute');
   if (this.currentAudio.muted == false) {
     this.currentAudio.muted = true;
     volumeUp.style.display = 'none';
