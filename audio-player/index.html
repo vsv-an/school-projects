@@ -11,9 +11,12 @@
 
 <body>
   <main>
-    <!-- <img class="background" src="./img/gipsy-kings.jpg" alt="gipsy-kings"> -->
+    <audio id="current-audio" ontimeupdate="onTimeUpdate()">
+      <source id="source-audio" src="" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
     <div class="player-container">
-      <img class="thumbnail" src="./img/gipsy-kings.jpg" alt="gipsy-kings">
+      <div class="thumbnail"></div>
       <div class="player-box">
         <div class="info">
           <div class="timer">00:00</div>
@@ -29,7 +32,7 @@
               <i class='fas fa-step-backward'></i>
             </div>
           </div>
-          <div class="btn-action">
+          <div class="btn-action" onclick="toggleAudio()">
             <div id="btn-play-pause">
               <i class='fas fa-play' id="icon-play"></i>
               <i class='fas fa-pause' id="icon-pause" style="display: none"></i>
@@ -42,8 +45,12 @@
           </div>
         </div>
       </div>
+      <!-- <div class="playlist"></div> -->
+    </div>
+    <div class="playlist-wrapper">
       <div class="playlist"></div>
     </div>
+
   </main>
   <footer class="footer">
     <div class="footer-container">
