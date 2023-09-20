@@ -122,6 +122,12 @@ function pauseAudio() {
   clearInterval(interval1);
 }
 
+function stopPlay() {
+  this.currentAudio.currentTime = 0;
+  this.currentAudio.pause();
+
+}
+
 var timer = document.getElementsByClassName('timer')[0];
 var barProgress = document.getElementById('song-progress-bar');
 var width = 0;
@@ -205,4 +211,19 @@ function pauseToPlay(index) {
   var element = document.querySelector('#p-img-' + index);
   element.classList.remove('fa-pause');
   element.classList.add('fa-play');
+}
+
+function toggleMute() {
+  var btnMute = document.querySelector('toggle-mute');
+  var volumeUp = document.querySelector('#icon-volume-up');
+  var volumeMute = document.querySelector('#icon-volume-mute');
+  if (this.currentAudio.muted == false) {
+    this.currentAudio.muted = true;
+    volumeUp.style.display = 'none';
+    volumeMute.style.display = 'block';
+  } else {
+    this.currentAudio.muted = false;
+    volumeUp.style.display = 'block';
+    volumeMute.style.display = 'none';
+  }
 }

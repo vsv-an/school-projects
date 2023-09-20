@@ -19,12 +19,14 @@
       <div class="thumbnail"></div>
       <div class="player-box">
         <div class="info">
-          <div class="timer">00:00</div>
           <div class="title">Artist1 - Song1</div>
-          <div class="duration">00:00</div>
         </div>
-        <div id="progress-bar">
-          <div id="song-progress-bar"></div>
+        <div class="progress-bar-wrapper">
+          <div class="timer">00:00</div>
+          <div id="progress-bar">
+            <div id="song-progress-bar"></div>
+          </div>
+          <div class="duration">00:00</div>
         </div>
         <div class="buttons">
           <div class="btn-action first-btn" onclick="previous()">
@@ -38,9 +40,20 @@
               <i class='fas fa-pause' id="icon-pause" style="display: none"></i>
             </div>
           </div>
+          <div class="btn-action" onclick="stopPlay()">
+            <div id="btn-stop">
+              <i class='fas fa-stop' id="icon-stop"></i>
+            </div>
+          </div>
           <div class="btn-action" onclick="next()">
             <div id="btn-next">
               <i class='fas fa-step-forward'></i>
+            </div>
+          </div>
+          <div class="btn-mute" id="toggle-mute" onclick="toggleMute()">
+            <div id="btn-volume">
+              <i id="icon-volume-up" class='fas fa-volume-up'></i>
+          <i id="icon-volume-mute" class='fas fa-volume-mute' style="display: none"></i>
             </div>
           </div>
         </div>
