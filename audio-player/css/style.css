@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url('../img/bee-gees.jpg'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+}
+
+.player-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  width: 425px;
+  overflow: hidden;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #000;
+  background-color: rgb(92, 92, 92);
+  margin-bottom: 5px;
+}
+
+.thumbnail {
+  /* object-fit: fill; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80%;
+  width: 100%;
+  transition: 3s;
+}
+
+.player-box {
+  height: 20%;
+  width: 100%;
+}
+
+.title {
+  width: 210px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.progress-bar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+}
+
+#progress-bar {
+  width: 320px;
+  background: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#song-progress-bar {
+  width: 0%;
+  height: 5px;
+  background: #000;
+  border-radius: 10px;
+}
+
+.buttons,
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  color: #fff;
+}
+
+.btn-action,
+.btn-mute {
+  cursor: pointer;
+  width: 20px;
+}
+
+.fas {
+  color: #fff;
+  font-size: 20px;
+}
+
+.playlist-wrapper {
+  padding-top: 5px;
+  width: 425px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #000;
+  background-color: rgb(92, 92, 92);
+}
+
+.playlist {
+  padding-bottom: 20px;
+}
+
+.playlist-track {
+  display: flex;
+  /* background-color: #464646; */
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.playlist-track > div {
+  margin: 10px;
+}
+
+.playlist-info-track {
+  width: 80%;
+}
+
+.playlist-info-track,
+.playlist-duration {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color: #fff;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.active-track {
+  background: #4d4d4d;
+  color: #fff;
+  font-weight: bold;
+}
+
+.active-track > .playlist-info-track,
+.active-track >.playlist-duration,
+.active-track > .playlist-btn-play{
+  /* color: #ffc266 !important; */
+}
+
+.playlist-btn-play {
+  pointer-events: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.footer {
+  background-color: rgba(201, 198, 198, 0.192);
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.github-logo {
+  width: 40px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.rss-logo {
+  width: 110px;
+  margin-left: 30px;
+}
