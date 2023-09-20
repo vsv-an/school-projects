@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+.footer {
+  /* background-color: #c9c6c6; */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.github-logo {
+  width: 40px;
+}
+
+.rss-logo {
+  width: 110px;
+}
