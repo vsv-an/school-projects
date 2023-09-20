@@ -58,6 +58,7 @@ var currentAudio = document.getElementById('current-audio');
 var indexAudio = 0;
 
 function loadNewTrack(index) {
+  // var random = Math.floor(Math.random() * (listAudio.length - 0) + 0);
   player.src = listAudio[index].file;
   document.querySelector('.title').innerHTML = listAudio[index].name;
   document.querySelector('.thumbnail').style.backgroundImage = listAudio[index].img;
@@ -92,6 +93,7 @@ document.querySelector('#source-audio').src = listAudio[indexAudio].file;
 document.querySelector('.title').innerHTML = listAudio[indexAudio].name;
 document.querySelector('.thumbnail').style.backgroundImage = listAudio[indexAudio].img;
 document.querySelector('body').style.backgroundImage = listAudio[indexAudio].img;
+document.querySelector('#ptc-' + this.indexAudio).classList.add('active-track');
 
 currentAudio.load();
 

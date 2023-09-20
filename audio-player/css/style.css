@@ -58,12 +58,14 @@ body {
 .progress-bar-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 97%;
+  margin: 0 auto;;
   color: #fff;
 }
 
 #progress-bar {
-  width: 320px;
+  width: 315px;
   background: #fff;
   border-radius: 10px;
   cursor: pointer;
@@ -102,9 +104,8 @@ body {
   width: 20px;
 }
 
-.fas:hover,
-.playlist-track:hover {
-  color: rgb(156, 156, 136);
+.fas:hover {
+  color: #bebebe;
 }
 
 .playlist-wrapper {
@@ -146,6 +147,10 @@ body {
 .active-track {
   background: #4d4d4d;
   color: #fff;
+}
+
+.playlist-track:hover {
+  background: #7c7c7c;
 }
 
 .playlist-btn-play {
