@@ -108,7 +108,7 @@ body {
 }
 
 .playlist-wrapper {
-  padding-top: 5px;
+  padding-top: 20px;
   width: 425px;
   border: 1px solid #000;
   border-radius: 10px;
@@ -146,13 +146,6 @@ body {
 .active-track {
   background: #4d4d4d;
   color: #fff;
-  /* font-weight: bold; */
-}
-
-.active-track > .playlist-info-track,
-.active-track >.playlist-duration,
-.active-track > .playlist-btn-play{
-  /* color: #ffc266 !important; */
 }
 
 .playlist-btn-play {
@@ -162,26 +155,24 @@ body {
 }
 
 .footer {
-  background-color: rgba(201, 198, 198, 0.192);
+  background-color: rgba(200, 200, 200, 0.2);
   position: absolute;
   bottom: 0;
-  z-index: 2;
+  border-radius: 10px 10px 0 0;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  gap: 95px;
   padding: 20px;
 }
 
 .github-logo {
   width: 40px;
-  margin-left: 30px;
-  margin-right: 30px;
 }
 
 .rss-logo {
   width: 110px;
-  margin-left: 30px;
 }

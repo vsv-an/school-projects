@@ -136,6 +136,8 @@ function onTimeUpdate() {
     if (this.indexAudio < listAudio.length - 1) {
       let index = parseInt(this.indexAudio) + 1;
       this.loadNewTrack(index);
+    } else {
+      this.loadNewTrack(0);
     }
   }
 }
