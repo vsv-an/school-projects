@@ -161,6 +161,12 @@ function getMinutes(t) {
   return min + ':' + sec;
 }
 
+const volume = document.querySelector('#volume-progress-bar');
+
+volume.addEventListener('input', function () {
+  currentAudio.volume = parseInt(this.value) / 10;
+}, false);
+
 const progressbar = document.querySelector('#progress-bar');
 progressbar.addEventListener('click', seek.bind(this));
 
@@ -205,7 +211,7 @@ function playToPause(index) {
 }
 
 function pauseToPlay(index) {
- let element = document.querySelector('#p-img-' + index);
+  let element = document.querySelector('#p-img-' + index);
   element.classList.remove('fa-pause');
   element.classList.add('fa-play');
 }

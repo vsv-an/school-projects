@@ -48,24 +48,34 @@ body {
   width: 100%;
 }
 
-.title {
-  width: 90%;
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.progress-bar-wrapper {
+.info {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 97%;
+  padding: 5px;
+  color: #fff;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.title {
+  display: flex;
+  justify-content: end;
+  width: 70%;
+}
+
+.progress-bar-wrapper {
   margin: 0 auto;;
   color: #fff;
 }
 
 #progress-bar {
-  width: 315px;
+  margin: 0 auto;
+  width: 98%;
   background: #fff;
   border-radius: 10px;
   cursor: pointer;
@@ -78,12 +88,73 @@ body {
   border-radius: 10px;
 }
 
-.buttons,
-.info {
+#volume-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 20px;
+  color: #fff;
+}
+
+#volume-progress-bar {
+  cursor: pointer;
+  /* height: 5px; */
+  background: #000;
+  /* opacity: 1; */
+  border-radius: 10px;
+  /* -webkit-transition: 0.2s; */
+  /* transition: opacity 0.2s; */
+  /* outline: none; */
+  /* overflow: hidden; */
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  overflow: hidden;
+  height: 5px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 5px;
+  background: #000;
+  box-shadow: -200px  0 0 200px  rgba(0, 0, 0, 0.7);
+}
+
+input[type=range]::-moz-range-track {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 15px;
+  height: 5px;
+  background: #000;
+  box-shadow: -200px  0 0 200px  rgba(0, 0, 0, 0.7);
+  padding: 0;
+  margin: 0;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   color: #fff;
 }
 
