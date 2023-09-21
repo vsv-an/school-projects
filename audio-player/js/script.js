@@ -58,7 +58,6 @@ var currentAudio = document.getElementById('current-audio');
 var indexAudio = 0;
 
 function loadNewTrack(index) {
-  // var random = Math.floor(Math.random() * (listAudio.length - 0) + 0);
   player.src = listAudio[index].file;
   document.querySelector('.title').innerHTML = listAudio[index].name;
   document.querySelector('.thumbnail').style.backgroundImage = listAudio[index].img;
@@ -108,11 +107,13 @@ function toggleAudio() {
     document.querySelector('#ptc-' + this.indexAudio).classList.add('active-track');
     this.playToPause(this.indexAudio);
     this.currentAudio.play();
+    document.querySelector('.thumbnail').style.transform = 'scale(1.1)';
   } else {
     document.querySelector('#icon-play').style.display = 'block';
     document.querySelector('#icon-pause').style.display = 'none';
     this.pauseToPlay(this.indexAudio);
     this.currentAudio.pause();
+    document.querySelector('.thumbnail').style.transform = 'scale(1)';
   }
 }
 
@@ -125,12 +126,11 @@ function stopPlay() {
 }
 
 const timer = document.getElementsByClassName('timer')[0];
-const barProgress = document.getElementById('song-progress-bar');
+const songProgressBar = document.getElementById('song-progress-bar');
 
 function onTimeUpdate() {
   let t = this.currentAudio.currentTime;
   timer.innerHTML = this.getMinutes(t);
-  this.setBarProgress();
   if (this.currentAudio.ended) {
     document.querySelector('#icon-play').style.display = 'block';
     document.querySelector('#icon-pause').style.display = 'none';
@@ -144,10 +144,27 @@ function onTimeUpdate() {
   }
 }
 
+const volumeBar = document.querySelector('#volume-progress-bar');
+
+volumeBar.addEventListener('input', function () {
+  let volumeUp = document.querySelector('#icon-volume-up');
+  let volumeMute = document.querySelector('#icon-volume-mute');
+  currentAudio.volume = parseInt(this.value) / 10;
+  if (this.value == '0') {
+    volumeUp.style.display = 'none';
+    volumeMute.style.display = 'block';
+  } else {
+    volumeUp.style.display = 'block';
+    volumeMute.style.display = 'none';
+  }
+}, false);
+
 function setBarProgress() {
-  let progress = (this.currentAudio.currentTime / this.currentAudio.duration) * 100;
-  document.getElementById('song-progress-bar').style.width = progress + '%';
+  songProgressBar.max = this.currentAudio.duration;
+  songProgressBar.value = this.currentAudio.currentTime;
 }
+
+setInterval(setBarProgress, 500);
 
 function getMinutes(t) {
   let min = parseInt(parseInt(t) / 60);
@@ -161,19 +178,12 @@ function getMinutes(t) {
   return min + ':' + sec;
 }
 
-const volume = document.querySelector('#volume-progress-bar');
-
-volume.addEventListener('input', function () {
-  currentAudio.volume = parseInt(this.value) / 10;
-}, false);
-
-const progressbar = document.querySelector('#progress-bar');
-progressbar.addEventListener('click', seek.bind(this));
+const progressbar = document.querySelector('#song-progress-bar');
+songProgressBar.addEventListener('click', seek.bind(this));
 
 function seek(event) {
-  let percent = event.offsetX / progressbar.offsetWidth;
+  let percent = event.offsetX / songProgressBar.offsetWidth;
   this.currentAudio.currentTime = percent * this.currentAudio.duration;
-  barProgress.style.width = percent * 100 + '%';
 }
 
 function previous() {
