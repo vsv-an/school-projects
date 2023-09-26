@@ -3,11 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
   <title>js30#2.2-image-galery</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left-column">
+        <img src="./icons/photo-camera.svg" alt="photo-camera" class="header-icon">
+        <h1 class="header-name">Unsplash API</h1>
+      </div>
+      <div class="header-right-column">
+        <form action="submit" class="search-form" name="search">
+          <input type="text" id="search" class="header-search" name="search-value" placeholder="Search..." autofocus autocomplete="off">
+          <img src="./icons/close-btn.svg" alt="close button" class="header-close-btn">
+        </form>
+      </div>
+
+    </div>
+
+  </header>
+  <main class="main">
+    <div class="main-container"></div>
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <a href="https://github.com/ViacheslavAnisimov" target="blank">
+          <img class="github-logo" src="./icons/github-mark.svg" alt="github-logo">
+        </a>
+      </div>
+      <p>&copy; 2023</p>
+      <div>
+        <a href="https://rs.school/js-stage0/" target="blank">
+          <img class="rss-logo" src="./icons/rs_school_js.svg" alt="rs_school_js_logo">
+        </a>
+      </div>
+    </div>
+  </footer>
   <script src="./js/script.js"></script>
 </body>
 </html>
