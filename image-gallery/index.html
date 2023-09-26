@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
   <title>js30#2.2-image-galery</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -15,15 +15,17 @@
         <h1 class="header-name">Image Gallery</h1>
       </div>
       <div class="header-right-column">
-        <input type="text" class="header-search" placeholder="Search..." autofocus autocomplete="off">
-        <img src="./icons/close-btn.svg" alt="close button" class="header-close-btn">
+        <form action="submit" class="search-form" name="search">
+          <input type="text" id="search" class="header-search" name="search-value" placeholder="Search..." autofocus autocomplete="off">
+          <img src="./icons/close-btn.svg" alt="close button" class="header-close-btn">
+        </form>
       </div>
 
     </div>
 
   </header>
   <main class="main">
-
+    <div class="main-container"></div>
   </main>
   <footer class="footer">
     <div class="footer-container">
