@@ -1,3 +1,5 @@
+// import listAudio from "./playlists";
+
 function createTrackItem(index, name, duration) {
   const trackItem = document.createElement('div');
   trackItem.setAttribute("class", "playlist-track");
@@ -32,19 +34,19 @@ const listAudio = [
   {
     name: "Gipsy Flame - For Your Eyes",
     file: "./songs/Gypsy_Flame-For_Your_Eyes.mp3",
-    duration: "04:54",
+    duration: "04:53",
     img: "url('./img/img-1.jpg')",
   },
   {
     name: "Rubia - Mi Amor",
     file: "./songs/Rubia-Mi_Amor.mp3",
-    duration: "05:16",
+    duration: "05:15",
     img: "url(./img/img-2.jpg)",
   },
   {
     name: "Gipsy Kings - Moorea",
     file: "./songs/Gipsy_Kings-Moorea.mp3",
-    duration: "04:02",
+    duration: "04:01",
     img: "url(./img/img-3.jpg)",
   }
 ]
@@ -65,7 +67,7 @@ function loadNewTrack(index) {
   this.currentAudio = document.getElementById("current-audio");
   this.currentAudio.load();
   this.toggleAudio();
-  this.updatesStylePlylist(this.indexAudio, index);
+  this.updateStylePlaylist(this.indexAudio, index);
   this.indexAudio = index;
 }
 
@@ -125,12 +127,12 @@ function stopPlay() {
   this.currentAudio.pause();
 }
 
-const timer = document.getElementsByClassName('timer')[0];
+const currentTimeIndicator = document.getElementsByClassName('current-time')[0];
 const songProgressBar = document.getElementById('song-progress-bar');
 
 function onTimeUpdate() {
   let t = this.currentAudio.currentTime;
-  timer.innerHTML = this.getMinutes(t);
+  currentTimeIndicator.innerHTML = this.getMinutes(t);
   if (this.currentAudio.ended) {
     document.querySelector('#icon-play').style.display = 'block';
     document.querySelector('#icon-pause').style.display = 'none';
@@ -143,21 +145,6 @@ function onTimeUpdate() {
     }
   }
 }
-
-const volumeBar = document.querySelector('#volume-progress-bar');
-
-volumeBar.addEventListener('input', function () {
-  let volumeUp = document.querySelector('#icon-volume-up');
-  let volumeMute = document.querySelector('#icon-volume-mute');
-  currentAudio.volume = parseInt(this.value) / 10;
-  if (this.value == '0') {
-    volumeUp.style.display = 'none';
-    volumeMute.style.display = 'block';
-  } else {
-    volumeUp.style.display = 'block';
-    volumeMute.style.display = 'none';
-  }
-}, false);
 
 function setBarProgress() {
   songProgressBar.max = this.currentAudio.duration;
@@ -176,15 +163,49 @@ function getMinutes(t) {
     min = '0' + min;
   }
   return min + ':' + sec;
+};
+
+songProgressBar.oninput = function() {
+  currentAudio.currentTime = songProgressBar.value;
 }
 
-const progressbar = document.querySelector('#song-progress-bar');
-songProgressBar.addEventListener('click', seek.bind(this));
+const buttonMute = document.querySelector('.btn-mute');
+const volumeBar = document.querySelector('#volume-progress-bar');
+const volumeUp = document.querySelector('#icon-volume-up');
+const volumeMute = document.querySelector('#icon-volume-mute');
+let currentVolumeBar = volumeBar.value;
+let currentVolume = currentAudio.volume;
 
-function seek(event) {
-  let percent = event.offsetX / songProgressBar.offsetWidth;
-  this.currentAudio.currentTime = percent * this.currentAudio.duration;
-}
+buttonMute.addEventListener('click', () => {
+  toggleMute();
+});
+
+function toggleMute() {
+  if (currentAudio.volume !== 0) {
+    volumeUp.style.display = 'none';
+    volumeMute.style.display = 'block';
+    volumeBar.value = 0;
+    currentVolume = currentAudio.volume;
+    currentAudio.volume = 0;
+  } else {
+     volumeUp.style.display = 'block';
+    volumeMute.style.display = 'none';
+    volumeBar.value = currentVolumeBar;
+    currentAudio.volume = currentVolume;
+  }
+};
+
+volumeBar.addEventListener('input', () => {
+  currentAudio.volume = parseInt(volumeBar.value) / 100;
+  currentVolumeBar = volumeBar.value;
+  if (volumeBar.value != 0) {
+    volumeUp.style.display = 'block';
+    volumeMute.style.display = 'none';
+  } else {
+    volumeUp.style.display = 'none';
+    volumeMute.style.display = 'block';
+  }
+});
 
 function previous() {
   let oldIndex = this.indexAudio;
@@ -193,7 +214,7 @@ function previous() {
     this.indexAudio = listAudio.length - 1;
     oldIndex = 0;
   }
-  updatesStylePlylist(oldIndex, this.indexAudio);
+  updateStylePlaylist(oldIndex, this.indexAudio);
   this.loadNewTrack(this.indexAudio);
 }
 
@@ -203,11 +224,11 @@ function next() {
   if (this.indexAudio > listAudio.length - 1) {
     indexAudio = 0;
   }
-  updatesStylePlylist(oldIndex, this.indexAudio);
+  updateStylePlaylist(oldIndex, this.indexAudio);
   this.loadNewTrack(this.indexAudio);
 }
 
-function updatesStylePlylist(oldIndex, newIndex) {
+function updateStylePlaylist(oldIndex, newIndex) {
   document.querySelector('#ptc-' + oldIndex).classList.remove('active-track');
   this.pauseToPlay(oldIndex);
   document.querySelector('#ptc-' + newIndex).classList.add('active-track');
@@ -224,21 +245,6 @@ function pauseToPlay(index) {
   let element = document.querySelector('#p-img-' + index);
   element.classList.remove('fa-pause');
   element.classList.add('fa-play');
-}
-
-function toggleMute() {
-  let btnMute = document.querySelector('toggle-mute');
-  let volumeUp = document.querySelector('#icon-volume-up');
-  let volumeMute = document.querySelector('#icon-volume-mute');
-  if (this.currentAudio.muted == false) {
-    this.currentAudio.muted = true;
-    volumeUp.style.display = 'none';
-    volumeMute.style.display = 'block';
-  } else {
-    this.currentAudio.muted = false;
-    volumeUp.style.display = 'block';
-    volumeMute.style.display = 'none';
-  }
 }
 
 console.log(`
