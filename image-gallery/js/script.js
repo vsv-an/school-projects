@@ -2,6 +2,18 @@ const mainContainer = document.querySelector('.main-container');
 const headerSearchInput = document.querySelector('.header-search');
 const headerCloseButton = document.querySelector('.header-close-btn');
 const searchForm = document.querySelector('.search-form');
+const magnifyingGlass = document.querySelector('.magnifying-glass');
+
+headerSearchInput.addEventListener('input', (event) => {
+  event.preventDefault();
+  if (headerSearchInput.value != '') {
+    magnifyingGlass.classList.remove('disabled');
+    headerCloseButton.style.visibility = 'visible';
+  } else {
+    magnifyingGlass.classList.add('disabled');
+    headerCloseButton.style.visibility = 'hidden';
+  }
+});
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -10,9 +22,18 @@ searchForm.addEventListener('submit', (event) => {
   getData(searchWord);
 });
 
+magnifyingGlass.addEventListener('click', (event) => {
+  event.preventDefault();
+  let searchWord = headerSearchInput.value;
+  mainContainer.innerHTML = '';
+  getData(searchWord);
+})
+
 headerCloseButton.addEventListener('click', (event) => {
   event.preventDefault();
   headerSearchInput.value = '';
+  magnifyingGlass.classList.add('disabled');
+  headerCloseButton.style.visibility = 'hidden';
 });
 
 async function getData(search) {
