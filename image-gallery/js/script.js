@@ -23,14 +23,22 @@ async function getData(search) {
 
 function imgGrid(data) {
   for (let imgJson of data.results) {
+    let href = document.createElement('a');
+    href.setAttribute('href', imgJson.urls.full);
+    href.setAttribute('target', '_blank');
+    mainContainer.append(href);
     let img = document.createElement('img');
     img.setAttribute('src', imgJson.urls.small);
-    img.classList.add('img-item');
-    mainContainer.appendChild(img);
+    img.setAttribute('alt', headerSearchInput.value);
+    href.classList.add('img-item');
+    img.addEventListener('click', () => {
+      headerSearchInput.focus();
+    });
+    href.append(img);
   };
 };
 
-window.onload = () => getData('Mountains');
+window.onload = () => getData('image');
 
 console.log(`
 Score: 60 / 60
