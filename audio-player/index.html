@@ -21,7 +21,7 @@
       <div class="player-box">
         <div class="info">
           <div class="timer-container">
-            <span class="timer">00:00</span>
+            <span class="current-time">00:00</span>
             <span>/</span>
             <span class="duration">00:00</span>
           </div>
@@ -53,13 +53,13 @@
             </div>
           </div>
           <div id="volume-bar">
-            <div class="btn-mute" id="toggle-mute" onclick="toggleMute()">
+            <div class="btn-mute" id="toggle-mute">
               <div id="btn-volume">
                 <i id="icon-volume-up" class='fas fa-volume-up'></i>
                 <i id="icon-volume-mute" class='fas fa-volume-mute' style="display: none"></i>
               </div>
             </div>
-            <input type="range" min="0" max="10" value="9" id="volume-progress-bar">
+            <input type="range" value="100" id="volume-progress-bar">
           </div>
         </div>
       </div>
