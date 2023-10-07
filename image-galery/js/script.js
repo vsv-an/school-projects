@@ -3,6 +3,7 @@ const headerSearchInput = document.querySelector('.header-search');
 const headerCloseButton = document.querySelector('.header-close-btn');
 const searchForm = document.querySelector('.search-form');
 const magnifyingGlass = document.querySelector('.magnifying-glass');
+const url = new URL(window.location);
 
 headerSearchInput.addEventListener('input', (event) => {
   event.preventDefault();
@@ -12,13 +13,27 @@ headerSearchInput.addEventListener('input', (event) => {
   } else {
     magnifyingGlass.classList.add('disabled');
     headerCloseButton.style.visibility = 'hidden';
-  }
+  };
 });
+
+// document.addEventListener('keypress', (event) => {
+//   if (event.key == 'Enter') {
+//     getData(window.location.search.slice(7));
+//   }
+// });
+
+if (location.search != '' && headerSearchInput.value != window.location.search) {
+  headerSearchInput.value = window.location.search.slice(7);
+  magnifyingGlass.classList.remove('disabled');
+  headerCloseButton.style.visibility = 'visible';
+};
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
   let searchWord = headerSearchInput.value;
   mainContainer.innerHTML = '';
+  url.searchParams.set('query', `${searchWord}`);
+  window.history.pushState({}, '', url);
   getData(searchWord);
 });
 
@@ -59,7 +74,22 @@ function imgGrid(data) {
   };
 };
 
-window.onload = () => getData('image');
+// const url = new URL(window.location);
+// url.searchParams.set('query', 'bar');
+// window.history.pushState({}, '', url);
+
+if (location.search != '' && headerSearchInput.value != window.location.search) {
+  headerSearchInput.value = window.location.search.slice(7);
+}
+
+window.onload = () => {
+  if (location.search != '' && headerSearchInput.value != window.location.search) {
+    headerSearchInput.value = window.location.search.slice(7);
+    getData(window.location.search.slice(7));
+  } else {
+    getData('image');
+  }
+}
 
 console.log(`
 Score: 60 / 60
