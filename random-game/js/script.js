@@ -8,6 +8,7 @@ const pauseButton = document.querySelector('.pause-button');
 let width = 10;
 let bombAmount = 10;
 let flags = 0;
+let matches = 0;
 let squares = [];
 let isGameOver = false;
 
@@ -34,7 +35,7 @@ pauseButton.addEventListener('click', () => {
 //Stop-watch
 function stopWatch() {
   isTimerActive = true;
-  const x = setInterval(function() {
+  const x = setInterval(function () {
     if (isTimerActive) {
       time += 1;
 
@@ -59,6 +60,8 @@ function createBoard() {
   flagsAmountField.innerHTML = 0;
   bombAmountField.innerHTML = bombAmount;
 
+  new Audio("./sounds/start.mp3").play();
+
   //get shuffled game array with random bombs
   const bombsArray = Array(bombAmount).fill('bomb');
   const emptyArray = Array(width * width - bombAmount).fill('valid');
@@ -75,6 +78,7 @@ function createBoard() {
     //left mouse button click
     square.addEventListener('click', function (e) {
       click(square);
+      new Audio("./sounds/click.mp3").play();
       // timer = true;
       if (stopWatchField.innerHTML == '00:00') {
         pauseButton.classList.remove('disabled');
@@ -86,6 +90,7 @@ function createBoard() {
     square.oncontextmenu = function (e) {
       e.preventDefault();
       addFlag(square);
+      new Audio("./sounds/click.mp3").play();
     }
   }
 
@@ -124,7 +129,7 @@ function addFlag(square) {
       square.classList.remove('flag');
       square.innerHTML = '';
       flags--;
-      flagsLeflagsAmountFieldft.innerHTML = flags;
+      flagsLeflagsAmountField.innerHTML = flags;
     }
   }
 }
@@ -215,7 +220,9 @@ function gameOver(square) {
     }
   });
   setTimeout(() => {
+    new Audio("./sounds/lose_minesweeper.mp3").play();
     isTimerActive = false;
+    pauseButton.classList.add('disabled');
   }, 10);
 }
 
@@ -232,6 +239,8 @@ function checkForWin() {
       result.innerHTML = 'YOU WIN!';
       isGameOver = true;
       isTimerActive = false;
+      pauseButton.classList.add('disabled');
+      new Audio("./sounds/click.mp3").play();
     }
   }
 }
