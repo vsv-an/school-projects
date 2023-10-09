@@ -1,8 +1,9 @@
-// document.addEventListener('DOMContentLoaded', () => {
 const grid = document.querySelector('.grid');
-const flagsLeft = document.querySelector('#flags-left');
-const result = document.querySelector('#result');
+const flagsAmountField = document.querySelector('.flags-amount-field');
+const bombAmountField = document.querySelector('.bomb-amount-field');
+const result = document.querySelector('.result');
 const newGameButton = document.querySelector('.new-game-button');
+const stopWatchField = document.querySelector('.stopwatch');
 const pauseButton = document.querySelector('.pause-button');
 let width = 10;
 let bombAmount = 10;
@@ -19,13 +20,14 @@ newGameButton.addEventListener('click', () => {
 });
 
 pauseButton.addEventListener('click', () => {
-  if (isTimerActive == true) {
-    isTimerActive = false;
-    pauseButton.innerHTML = 'Resume';
-  } else {
+  if (isTimerActive == false && stopWatchField.innerHTML != '00:00') {
     isTimerActive = true;
     pauseButton.innerHTML = 'Pause';
     stopWatch();
+  } else {
+    isTimerActive = false;
+    pauseButton.innerHTML = 'Resume';
+    // stopWatch();
   }
 });
 
@@ -44,7 +46,7 @@ function stopWatch() {
       if (seconds < 10) {
         seconds = "0" + seconds;
       }
-      document.querySelector('.stopwatch').innerHTML = minutes + ":" + seconds;
+      stopWatchField.innerHTML = minutes + ":" + seconds;
     } else {
       clearInterval(x);
     }
@@ -54,7 +56,8 @@ function stopWatch() {
 
 //create Board
 function createBoard() {
-  flagsLeft.innerHTML = bombAmount;
+  flagsAmountField.innerHTML = 0;
+  bombAmountField.innerHTML = bombAmount;
 
   //get shuffled game array with random bombs
   const bombsArray = Array(bombAmount).fill('bomb');
@@ -73,7 +76,8 @@ function createBoard() {
     square.addEventListener('click', function (e) {
       click(square);
       // timer = true;
-      if (document.querySelector('.stopwatch').innerHTML == '00:00') {
+      if (stopWatchField.innerHTML == '00:00') {
+        pauseButton.classList.remove('disabled');
         stopWatch();
       }
     });
@@ -109,18 +113,18 @@ createBoard();
 //add Flag with right click
 function addFlag(square) {
   if (isGameOver) return;
-  if (!square.classList.contains('checked') && (flags < bombAmount)) {
+  if (!square.classList.contains('checked')) {
     if (!square.classList.contains('flag')) {
       square.classList.add('flag');
       square.innerHTML = '🚩';
       flags++;
-      flagsLeft.innerHTML = bombAmount - flags;
+      flagsAmountField.innerHTML = flags;
       checkForWin();
     } else {
       square.classList.remove('flag');
       square.innerHTML = '';
       flags--;
-      flagsLeft.innerHTML = bombAmount - flags;
+      flagsLeflagsAmountFieldft.innerHTML = flags;
     }
   }
 }
@@ -224,13 +228,10 @@ function checkForWin() {
     if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
       matches++;
     }
-    if (matches === bombAmount) {
+    if (matches === bombAmount && flags === bombAmount) {
       result.innerHTML = 'YOU WIN!';
       isGameOver = true;
       isTimerActive = false;
     }
   }
 }
-
-// window.onload
-// });

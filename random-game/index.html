@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
   <title>js30#3.3-random-game</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css">
@@ -12,13 +13,13 @@
 <body>
   <div class="conatainer">
     <button class="new-game-button">New Game</button>
-    <button class="pause-button">Pause</button>
+    <button class="pause-button disabled">Pause</button>
     <div class="grid"></div>
-    <div>Flags left: <span id="flags-left"></span></div>
+    <div>Mines: <span class="flags-amount-field"></span>/<span class="bomb-amount-field"></span></div>
     <div>Time:
       <span class="stopwatch">00:00</span></span>
     </div>
-    <div id="result"></div>
+    <div class="result"></div>
   </div>
 
   <footer class="footer">

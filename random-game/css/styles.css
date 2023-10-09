@@ -12,7 +12,29 @@ body {
   width: 500px;
 }
 
+.new-game-button {
+  cursor: pointer;
+}
+
+.pause-button {
+  cursor: pointer;;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.valid:hover,
+.bomb:hover {
+  background-color: #fff;
+}
+
+.checked:hover {
+  background-color: #cecab7;
+}
+
 .grid {
+  cursor: pointer;
   height: 400px;
   width: 400px;
   display: flex;
@@ -39,6 +61,7 @@ div {
 }
 
 .checked {
+  cursor: default;
   height: 40px;
   width: 40px;
   border: 2px solid;
@@ -72,7 +95,7 @@ div {
   color: #bb41d3;
 }
 
-#result {
+.result {
   margin-top: 5px;
   color: #e76346;
 }
