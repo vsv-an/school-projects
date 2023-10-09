@@ -16,8 +16,22 @@ let isTimerActive = false;
 let time = 0;
 let pauseTime = 0;
 
+let checkedItem = 0;
+
 newGameButton.addEventListener('click', () => {
-  location.reload();
+  // location.reload();
+  grid.innerHTML = '';
+  pauseButton.classList.add('disabled');
+  flags = 0;
+  matches = 0;
+  squares = [];
+  isGameOver = false;
+  isTimerActive = false;
+  time = 0;
+  checkedItem = 0;
+  stopWatchField.innerHTML = '00:00';
+  result.innerHTML = '';
+  createBoard();
 });
 
 pauseButton.addEventListener('click', () => {
@@ -28,7 +42,6 @@ pauseButton.addEventListener('click', () => {
   } else {
     isTimerActive = false;
     pauseButton.innerHTML = 'Resume';
-    // stopWatch();
   }
 });
 
@@ -78,8 +91,8 @@ function createBoard() {
     //left mouse button click
     square.addEventListener('click', function (e) {
       click(square);
+      checkForWin();
       new Audio("./sounds/click.mp3").play();
-      // timer = true;
       if (stopWatchField.innerHTML == '00:00') {
         pauseButton.classList.remove('disabled');
         stopWatch();
@@ -129,7 +142,8 @@ function addFlag(square) {
       square.classList.remove('flag');
       square.innerHTML = '';
       flags--;
-      flagsLeflagsAmountField.innerHTML = flags;
+      flagsAmountField.innerHTML = flags;
+      checkForWin();
     }
   }
 }
@@ -143,12 +157,27 @@ function click(square) {
     gameOver(square);
   } else {
     let total = square.getAttribute('data');
+    if (total == 0) {
+      checkedItem++;
+    }
     if (total != 0) {
       square.classList.add('checked');
-      if (total == 1) square.classList.add('one');
-      if (total == 2) square.classList.add('two');
-      if (total == 3) square.classList.add('three');
-      if (total == 4) square.classList.add('four');
+      if (total == 1) {
+        square.classList.add('one');
+        checkedItem++;
+      }
+      if (total == 2) {
+        square.classList.add('two');
+        checkedItem++;
+      }
+      if (total == 3) {
+        square.classList.add('three');
+        checkedItem++;
+      }
+      if (total == 4) {
+        square.classList.add('four');
+        checkedItem++;
+      }
       square.innerHTML = total;
       return;
     }
@@ -231,16 +260,30 @@ function checkForWin() {
   //simplified win argument
   let matches = 0;
 
-  for (let i = 0; i < squares.length; i++) {
-    if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
-      matches++;
-    }
-    if (matches === bombAmount && flags === bombAmount) {
-      result.innerHTML = 'YOU WIN!';
-      isGameOver = true;
-      isTimerActive = false;
-      pauseButton.classList.add('disabled');
-      new Audio("./sounds/click.mp3").play();
+  if (checkedItem == width * width - bombAmount) {
+    squares.forEach(square => {
+      if (square.classList.contains('bomb')) {
+        square.innerHTML = '🚩'
+      }
+    });
+    result.innerHTML = 'YOU WIN!';
+    isGameOver = true;
+    isTimerActive = false;
+    pauseButton.classList.add('disabled');
+    flagsAmountField.innerHTML = '10';
+    new Audio("./sounds/click.mp3").play();
+  } else {
+    for (let i = 0; i < squares.length; i++) {
+      if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
+        matches++;
+      }
+      if (matches === bombAmount && flags === bombAmount) {
+        result.innerHTML = 'YOU WIN!';
+        isGameOver = true;
+        isTimerActive = false;
+        pauseButton.classList.add('disabled');
+        new Audio("./sounds/click.mp3").play();
+      }
     }
   }
 }
