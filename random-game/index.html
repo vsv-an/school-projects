@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body>
   <div class="conatainer">
+    <button class="new-game-button">New Game</button>
+    <button class="pause-button">Pause</button>
     <div class="grid"></div>
     <div>Flags left: <span id="flags-left"></span></div>
+    <div>Time:
+      <span class="stopwatch">00:00</span></span>
+    </div>
     <div id="result"></div>
   </div>
 
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <a href="https://github.com/ViacheslavAnisimov" target="blank">
+          <img class="github-logo" src="./icons/github-mark.svg" alt="github-logo">
+        </a>
+      </div>
+      <p>&copy; 2023</p>
+      <div>
+        <a href="https://rs.school/js-stage0/" target="blank">
+          <img class="rss-logo" src="./icons/rs_school_js.svg" alt="rs_school_js_logo">
+        </a>
+      </div>
+    </div>
+  </footer>
   <script src="./js/script.js"></script>
 </body>
+
 </html>
