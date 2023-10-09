@@ -10,15 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //create Board
   function createBoard() {
+    flagsLeft.innerHTML = bombAmount;
+
     //get shuffled game array with random bombs
     const bombsArray = Array(bombAmount).fill('bomb');
     const emptyArray = Array(width * width - bombAmount).fill('valid');
-    console.log(bombsArray);
-    console.log(emptyArray);
     const gameArray = emptyArray.concat(bombsArray);
-    console.log(gameArray);
     const shuffledArray = gameArray.sort(() => Math.random() - 0.5);
-    console.log(shuffledArray);
 
     for(let i = 0; i < width * width; i++) {
       const square = document.createElement('div');
@@ -90,6 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
       let total = square.getAttribute('data');
       if (total != 0) {
         square.classList.add('checked');
+        if (total == 1) square.classList.add('one');
+        if (total == 2) square.classList.add('two');
+        if (total == 3) square.classList.add('three');
+        if (total == 4) square.classList.add('four');
         square.innerHTML = total;
         return;
       }
@@ -166,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkForWin() {
     //simplified win argument
     let matches = 0;
+
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
         matches++;
@@ -176,5 +179,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
-
 });
