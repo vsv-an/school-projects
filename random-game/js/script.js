@@ -32,16 +32,19 @@ newGameButton.addEventListener('click', () => {
   stopWatchField.innerHTML = '00:00';
   result.innerHTML = '';
   createBoard();
+  new Audio("./sounds/start.mp3").play();
 });
 
 pauseButton.addEventListener('click', () => {
   if (isTimerActive == false && stopWatchField.innerHTML != '00:00') {
     isTimerActive = true;
     pauseButton.innerHTML = 'Pause';
+    grid.classList.remove('disabled');
     stopWatch();
   } else {
     isTimerActive = false;
     pauseButton.innerHTML = 'Resume';
+    grid.classList.add('disabled');
   }
 });
 
@@ -73,7 +76,7 @@ function createBoard() {
   flagsAmountField.innerHTML = 0;
   bombAmountField.innerHTML = bombAmount;
 
-  new Audio("./sounds/start.mp3").play();
+  // new Audio("./sounds/start.mp3").play();
 
   //get shuffled game array with random bombs
   const bombsArray = Array(bombAmount).fill('bomb');
