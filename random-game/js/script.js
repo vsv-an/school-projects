@@ -18,21 +18,29 @@ let pauseTime = 0;
 
 let checkedItem = 0;
 
+let userData = [];
+
+// if (localStorage.getItem('userData')) {
+//   userData = JSON.parse(localStorage.getItem('userData'));
+//   userData.forEach((time) => renderTimeTable(time));
+// }
+
 newGameButton.addEventListener('click', () => {
-  // location.reload();
-  grid.innerHTML = '';
-  pauseButton.classList.add('disabled');
-  flags = 0;
-  matches = 0;
-  squares = [];
-  isGameOver = false;
-  isTimerActive = false;
-  time = 0;
-  checkedItem = 0;
-  stopWatchField.innerHTML = '00:00';
-  result.innerHTML = '';
-  createBoard();
-  new Audio("./sounds/start.mp3").play();
+  location.reload();
+  // grid.innerHTML = '';
+  // pauseButton.classList.add('disabled');
+  // grid.classList.remove('disabled');
+  // flags = 0;
+  // matches = 0;
+  // squares = [];
+  // isGameOver = false;
+  // isTimerActive = false;
+  // time = 0;
+  // checkedItem = 0;
+  // stopWatchField.innerHTML = '00:00';
+  // result.innerHTML = '';
+  // createBoard();
+  // new Audio("./sounds/start.mp3").play();
 });
 
 pauseButton.addEventListener('click', () => {
@@ -255,6 +263,10 @@ function gameOver(square) {
     new Audio("./sounds/lose_minesweeper.mp3").play();
     isTimerActive = false;
     pauseButton.classList.add('disabled');
+    const timeTableItem = document.createElement('div');
+    timeTableItem.innerHTML = stopWatchField.innerHTML;
+    timeTable.append(timeTableItem);
+    saveToLocalStorage();
   }, 10);
 }
 
@@ -289,4 +301,40 @@ function checkForWin() {
       }
     }
   }
+  if (result.innerHTML == 'YOU WIN!') {
+    const timeTableItem = document.createElement('div');
+    timeTableItem.innerHTML = stopWatchField.innerHTML;
+    timeTable.append(timeTableItem);
+    saveToLocalStorage();
+  }
+}
+
+function saveToLocalStorage() {
+  if (userData.length < 10) {
+    userData.push(stopWatchField.innerHTML);
+    localStorage.setItem('userData', JSON.stringify(userData));
+  } else {
+    userData.shift();
+    userData.push(stopWatchField.innerHTML);
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
+}
+
+const timeTable = document.querySelector('.time-table');
+
+if (localStorage.getItem('userData')) {
+  userData = JSON.parse(localStorage.getItem('userData'));
+  renderTimeTable();
+}
+
+function renderTimeTable(t) {
+  for (let i = 0; i < userData.length; i++) {
+    // const timeTableIndex = document.createElement('div');
+    // timeTableIndex.innerHTML = i + 1;
+    // timeTable.append(timeTableIndex);
+    const timeTableItem = document.createElement('div');
+    timeTableItem.innerHTML = userData[i];
+    timeTable.append(timeTableItem);
+  }
+
 }

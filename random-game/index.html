@@ -11,32 +11,41 @@
 </head>
 
 <body>
-  <div class="conatainer">
-    <button class="new-game-button">New Game</button>
-    <button class="pause-button disabled">Pause</button>
-    <div class="grid"></div>
-    <div>Mines: <span class="flags-amount-field"></span>/<span class="bomb-amount-field"></span></div>
-    <div>Time:
-      <span class="stopwatch">00:00</span></span>
-    </div>
-    <div class="result"></div>
-  </div>
 
-  <footer class="footer">
-    <div class="footer-container">
-      <div>
-        <a href="https://github.com/ViacheslavAnisimov" target="blank">
-          <img class="github-logo" src="./icons/github-mark.svg" alt="github-logo">
-        </a>
+    <div class="container">
+      <div class="left-column">
+        <button class="new-game-button">New Game</button>
+        <button class="pause-button disabled">Pause</button>
+        <div class="grid"></div>
+        <div>Mines: <span class="flags-amount-field"></span>/<span class="bomb-amount-field"></span></div>
+        <div>Time:
+          <span class="stopwatch">00:00</span></span>
+        </div>
+        <div class="result"></div>
       </div>
-      <p>&copy; 2023</p>
-      <div>
-        <a href="https://rs.school/js-stage0/" target="blank">
-          <img class="rss-logo" src="./icons/rs_school_js.svg" alt="rs_school_js_logo">
-        </a>
+      <div class="right-column">
+        <div class="time-table">Table of Game's Results</div>
       </div>
+
     </div>
-  </footer>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div>
+          <a href="https://github.com/ViacheslavAnisimov" target="blank">
+            <img class="github-logo" src="./icons/github-mark.svg" alt="github-logo">
+          </a>
+        </div>
+        <p>&copy; 2023</p>
+        <div>
+          <a href="https://rs.school/js-stage0/" target="blank">
+            <img class="rss-logo" src="./icons/rs_school_js.svg" alt="rs_school_js_logo">
+          </a>
+        </div>
+      </div>
+    </footer>
+
+
   <script src="./js/script.js"></script>
 </body>
 
