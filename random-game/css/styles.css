@@ -18,7 +18,8 @@ body {
 }
 
 .new-game-button,
-.pause-button {
+.pause-button,
+.clear-button {
   cursor: pointer;
   width: 100px;
   height: 40px;
@@ -27,7 +28,8 @@ body {
 }
 
 .new-game-button:hover,
-.pause-button:hover {
+.pause-button:hover,
+.clear-button:hover {
   transition: 0.5;
   transform: scale(1.1);
 }
