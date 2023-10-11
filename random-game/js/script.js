@@ -5,6 +5,7 @@ const result = document.querySelector('.result');
 const newGameButton = document.querySelector('.new-game-button');
 const stopWatchField = document.querySelector('.stopwatch');
 const pauseButton = document.querySelector('.pause-button');
+const clearButton = document.querySelector('.clear-button');
 let width = 10;
 let bombAmount = 10;
 let flags = 0;
@@ -26,7 +27,12 @@ let userData = [];
 // }
 
 newGameButton.addEventListener('click', () => {
-  location.reload();
+  // location.reload();
+  new Audio("./sounds/start.mp3").play();
+  setTimeout(() => {
+    location.reload();
+  }, 1000);
+
   // grid.innerHTML = '';
   // pauseButton.classList.add('disabled');
   // grid.classList.remove('disabled');
@@ -40,7 +46,6 @@ newGameButton.addEventListener('click', () => {
   // stopWatchField.innerHTML = '00:00';
   // result.innerHTML = '';
   // createBoard();
-  // new Audio("./sounds/start.mp3").play();
 });
 
 pauseButton.addEventListener('click', () => {
@@ -55,6 +60,11 @@ pauseButton.addEventListener('click', () => {
     grid.classList.add('disabled');
   }
 });
+
+clearButton.addEventListener('click', () => {
+  localStorage.clear();
+  location.reload();
+})
 
 //Stop-watch
 function stopWatch() {
@@ -263,6 +273,7 @@ function gameOver(square) {
     new Audio("./sounds/lose_minesweeper.mp3").play();
     isTimerActive = false;
     pauseButton.classList.add('disabled');
+    grid.classList.add('disabled');
     const timeTableItem = document.createElement('div');
     timeTableItem.innerHTML = stopWatchField.innerHTML;
     timeTable.append(timeTableItem);
@@ -282,11 +293,6 @@ function checkForWin() {
       }
     });
     result.innerHTML = 'YOU WIN!';
-    isGameOver = true;
-    isTimerActive = false;
-    pauseButton.classList.add('disabled');
-    flagsAmountField.innerHTML = '10';
-    new Audio("./sounds/click.mp3").play();
   } else {
     for (let i = 0; i < squares.length; i++) {
       if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
@@ -294,14 +300,16 @@ function checkForWin() {
       }
       if (matches === bombAmount && flags === bombAmount) {
         result.innerHTML = 'YOU WIN!';
-        isGameOver = true;
-        isTimerActive = false;
-        pauseButton.classList.add('disabled');
-        new Audio("./sounds/click.mp3").play();
       }
     }
   }
   if (result.innerHTML == 'YOU WIN!') {
+    isGameOver = true;
+    isTimerActive = false;
+    pauseButton.classList.add('disabled');
+    flagsAmountField.innerHTML = '10';
+    new Audio("./sounds/click.mp3").play();
+    grid.classList.add('disabled');
     const timeTableItem = document.createElement('div');
     timeTableItem.innerHTML = stopWatchField.innerHTML;
     timeTable.append(timeTableItem);
